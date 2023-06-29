@@ -4,7 +4,19 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      
+      keyframes: {
+        bounce1: {
+          '0%, 100%': { transform: 'translateY(-5px)' },
+          '25%, 75%': { transform: 'translateY(5px)' },
+          '50%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        bounce1: 'bounce1 3s ease-in-out infinite',
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {

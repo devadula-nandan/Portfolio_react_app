@@ -1,16 +1,17 @@
 import React from 'react'
 import Parallax from '../Parallax'
+import AnimateTyping from '../AnimateTyping'
 
 function Home() {
     return (
-        <div className="bg-base-100">
+        <div className="bg-base-100 scroll-smooth">
             <Parallax>
-                <div className='h-screen relative container mx-auto'>
+                <div className='h-screen relative container mx-auto' id='home'>
                     <div className="absolute w-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
                         <div className="flex flex-col items-center">
                             <img className="shadow-md mb-8 h-28 w-28 rounded-full" src="https://bolby-react.vercel.app/images/avatar-1.svg" alt="" />
-                            <button className="mb-3 transition-all hover:text-secondary normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-primary font-['Righteous'] group">Nandan <span className="text-accent group-hover:text-primary ">Devadula</span></button>
-                            <p className="text-xl mb-3 font-['Russo_One']">I'm a web developer</p>
+                            <button className="mb-3 transition-all duration-500 hover:text-secondary normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-primary font-['Righteous'] group">Nandan <span className="text-accent transition-all duration-500 group-hover:text-primary ">Devadula</span></button>
+                            <AnimateTyping arr={["Web Developer", "Frontend Developer"]} />
                             <div className="flex gap-1 mb-3">
                                 <button className='btn btn-ghost p-2 min-h-0 h-auto'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-instagram" viewBox="0 0 16 16">
@@ -41,8 +42,49 @@ function Home() {
                             <button className="btn btn-accent text-accent-content">HIRE ME</button>
                         </div>
                     </div>
+                    <div className="absolute w-full bottom-0 left-1/2 -translate-y-1/3 -translate-x-1/2 flex justify-center">
+                        <a className='p-3' href='#about'>
+                            <p className=' font-semibold text-base-content mb-3'>scroll down</p>
+                            <div className=" rounded-full w-5 mx-auto h-8 border-2 border-base-content flex justify-center items-center">
+                                <div className="h-1 w-1 bg-base-content animate-bounce1"></div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </Parallax>
+            <div className='container px-8 mx-auto pt-24'>
+                <h1 id="about" className="relative transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                <span className='absolute z-10'>About Me</span>
+                <svg className='absolute -left-4 -top-2 opacity-60 text-accent' width="37px" height="37px" viewBox="0 0 37 37">
+                    <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
+                        <g transform="translate(-261.000000, -990.000000)" fill="currentColor" id="about">
+                            <g transform="translate(261.000000, 990.000000)">
+                                <g id="section-title">
+                                    <g id="dots-bg">
+                                        <rect id="Rectangle" x="0" y="0" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy" x="11" y="0" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-2" x="22" y="0" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-3" x="33" y="0" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-7" x="0" y="11" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-6" x="11" y="11" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-5" x="22" y="11" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-4" x="33" y="11" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-15" x="0" y="22" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-14" x="11" y="22" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-13" x="22" y="22" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-12" x="33" y="22" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-11" x="0" y="33" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-10" x="11" y="33" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-9" x="22" y="33" width="4" height="4" rx="2" />
+                                        <rect id="Rectangle-Copy-8" x="33" y="33" width="4" height="4" rx="2" />
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+                </h1>
+            </div>
         </div>
     )
 }

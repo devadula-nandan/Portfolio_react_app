@@ -12,7 +12,9 @@ const Parallax = ({ children }) => {
             setMousePosition({ x: -(clientX - (window.innerWidth / 2)), y: -(clientY - (window.innerHeight / 2)) });
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
+        if(window.innerWidth > 768){
+            window.addEventListener('mousemove', handleMouseMove);
+        }
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);

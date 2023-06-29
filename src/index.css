@@ -5,7 +5,9 @@
 /* font-family: 'Righteous', cursive;
 font-family: 'Russo One', sans-serif;
 font-family: 'Syne Mono', monospace; */
-
+*{
+	scroll-behavior: smooth;
+}
 /*=================================================================*/
 /*                      PARALLAX SHAPES                              
 /*=================================================================*/
