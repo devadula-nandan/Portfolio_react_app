@@ -43,47 +43,284 @@ function Home() {
                         </div>
                     </div>
                     <div className="absolute w-full bottom-0 left-1/2 -translate-y-1/3 -translate-x-1/2 flex justify-center">
-                        <a className='p-3' href='#about'>
-                            <p className=' font-semibold text-base-content mb-3'>scroll down</p>
-                            <div className=" rounded-full w-5 mx-auto h-8 border-2 border-base-content flex justify-center items-center">
-                                <div className="h-1 w-1 bg-base-content animate-bounce1"></div>
+                        <a className='p-3 rounded group transition-all' href='#about'>
+                            <p className='transition-all group-hover:text-primary font-semibold text-base-content mb-3'>scroll down</p>
+                            <div className="transition-all group-hover:border-secondary rounded-full w-5 mx-auto h-8 border-2 border-base-content flex justify-center items-center">
+                                <div className="h-1 transition-all group-hover:bg-accent w-1 bg-base-content animate-bounce1"></div>
                             </div>
                         </a>
                     </div>
                 </div>
             </Parallax>
-            <div className='container px-8 mx-auto pt-24'>
-                <h1 id="about" className="relative transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
-                <span className='absolute z-10'>About Me</span>
-                <svg className='absolute -left-4 -top-2 opacity-60 text-accent' width="37px" height="37px" viewBox="0 0 37 37">
-                    <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
-                        <g transform="translate(-261.000000, -990.000000)" fill="currentColor" id="about">
-                            <g transform="translate(261.000000, 990.000000)">
-                                <g id="section-title">
-                                    <g id="dots-bg">
-                                        <rect id="Rectangle" x="0" y="0" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy" x="11" y="0" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-2" x="22" y="0" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-3" x="33" y="0" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-7" x="0" y="11" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-6" x="11" y="11" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-5" x="22" y="11" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-4" x="33" y="11" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-15" x="0" y="22" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-14" x="11" y="22" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-13" x="22" y="22" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-12" x="33" y="22" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-11" x="0" y="33" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-10" x="11" y="33" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-9" x="22" y="33" width="4" height="4" rx="2" />
-                                        <rect id="Rectangle-Copy-8" x="33" y="33" width="4" height="4" rx="2" />
+            <div className='container mx-auto pt-24'>
+                <div className=' px-8 md:px-4'>
+                    <h1 id="about" className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                        <span className=''>About Me</span>
+                        <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
+                            <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
+                                <g transform="translate(-261.000000, -990.000000)" fill="currentColor">
+                                    <g transform="translate(261.000000, 990.000000)">
+                                        <g id="section-title">
+                                            <g id="dots-bg">
+                                                <rect id="Rectangle" x="0" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy" x="11" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-2" x="22" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-3" x="33" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-7" x="0" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-6" x="11" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-5" x="22" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-4" x="33" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-15" x="0" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-14" x="11" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-13" x="22" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-12" x="33" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-11" x="0" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-10" x="11" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-9" x="22" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-8" x="33" y="33" width="4" height="4" rx="2" />
+                                            </g>
+                                        </g>
                                     </g>
                                 </g>
                             </g>
-                        </g>
-                    </g>
-                </svg>
-                </h1>
+                        </svg>
+                    </h1>
+                </div>
+
+                <div className='grid grid-cols-1 md:grid-cols-12 mt-20 px-3'>
+                    <div className="person col-span-3">
+                        <img className="shadow-md max-w-[16rem] mx-auto md:mx-0 mb-8 w-3/4 rounded-full" src="https://bolby-react.vercel.app/images/avatar-1.svg" alt="" />
+                    </div>
+                    <div className="col-span-9 drop-shadow-md relative">
+                        <div className='h-8 w-8 rotate-45 mx-auto -mb-4 bg-base-300 block md:hidden'></div>
+                        <div className='h-8 w-8 rotate-45 -mb-[2.9rem] -ml-[0.9rem] bg-base-300 hidden md:block'></div>
+                        <div className='p-7 md:p-8 rounded-box bg-base-300'>
+                            <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-4">
+                                <div className="col-span-6">
+                                    <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-acbasecent-content mb-6">Hi, I'm Nandan</h1>
+                                    <p className='text-base md:text-base lg:text-lg font-semibold mb-6'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, illo nesciunt asperiores, commodi molestiae voluptates corporis officia laborum quia aliquam excepturi beatae similique repudiandae a esse fuga blanditiis amet distinctio.</p>
+                                    <button className="btn btn-accent text-accent-content">Download CV</button>
+                                </div>
+                                <div className="col-span-6">
+                                    <div className="flex flex-col gap-4">
+                                        <div className="one">
+                                            <div className="flex justify-between">
+                                                <p className='font-semibold'>Frontend</p>
+                                                <p className='font-semibold'>76%</p>
+                                            </div>
+                                            <progress className="progress progress-primary w-full" value="76" max="100"></progress>
+                                        </div>
+                                        <div className="two">
+                                            <div className="flex justify-between">
+                                                <p className='font-semibold'>Backend</p>
+                                                <p className='font-semibold'>60%</p>
+                                            </div>
+                                            <progress className="progress progress-secondary w-full" value="60" max="100"></progress>
+                                        </div>
+                                        <div className="three">
+                                            <div className="flex justify-between">
+                                                <p className='font-semibold'>Databases</p>
+                                                <p className='font-semibold'>50%</p>
+                                            </div>
+                                            <progress className="progress progress-accent w-full" value="50" max="100"></progress>
+                                        </div>
+                                        <div className="four">
+                                            <div className="flex justify-between">
+                                                <p className='font-semibold'>Cloud/Servers</p>
+                                                <p className='font-semibold'>50%</p>
+                                            </div>
+                                            <progress className="progress progress-primary w-full" value="50" max="100"></progress>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className='container mx-auto pt-24'>
+                <div className=' px-8 md:px-4'>
+                    <h1 id="skills" className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                        <span className=''>Skills</span>
+                        <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
+                            <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
+                                <g transform="translate(-261.000000, -990.000000)" fill="currentColor">
+                                    <g transform="translate(261.000000, 990.000000)">
+                                        <g id="section-title">
+                                            <g id="dots-bg">
+                                                <rect id="Rectangle" x="0" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy" x="11" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-2" x="22" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-3" x="33" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-7" x="0" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-6" x="11" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-5" x="22" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-4" x="33" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-15" x="0" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-14" x="11" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-13" x="22" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-12" x="33" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-11" x="0" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-10" x="11" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-9" x="22" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-8" x="33" y="33" width="4" height="4" rx="2" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </h1>
+                </div>
+                <div className="flex flex-wrap mt-20 gap-6 md:gap-12 px-3 justify-center">
+                    <div className="skill flex flex-col items-center gap-2 md:gap-6">
+                        <div className="radial-progress font-semibold text-primary" style={{ "--value": "70", "--size": "calc(4vw + 4rem)", "--thickness": "calc(0.6vw + 0.6rem)" }}><span className='text-secondary'>70%</span></div>
+                        <p className='text-md text-base-content font-semibold md:text-xl lg:text-2xl'>Frontend</p>
+                    </div>
+                    <div className="skill flex flex-col items-center gap-2 md:gap-6">
+                        <div className="radial-progress font-semibold text-primary" style={{ "--value": "70", "--size": "calc(4vw + 4rem)", "--thickness": "calc(0.6vw + 0.6rem)" }}><span className='text-secondary'>70%</span></div>
+                        <p className='text-md text-base-content font-semibold md:text-xl lg:text-2xl'>Frontend</p>
+                    </div>
+                    <div className="skill flex flex-col items-center gap-2 md:gap-6">
+                        <div className="radial-progress font-semibold text-primary" style={{ "--value": "70", "--size": "calc(4vw + 4rem)", "--thickness": "calc(0.6vw + 0.6rem)" }}><span className='text-secondary'>70%</span></div>
+                        <p className='text-md text-base-content font-semibold md:text-xl lg:text-2xl'>Frontend</p>
+                    </div>
+                    <div className="skill flex flex-col items-center gap-2 md:gap-6">
+                        <div className="radial-progress font-semibold text-primary" style={{ "--value": "70", "--size": "calc(4vw + 4rem)", "--thickness": "calc(0.6vw + 0.6rem)" }}><span className='text-secondary'>70%</span></div>
+                        <p className='text-md text-base-content font-semibold md:text-xl lg:text-2xl'>Frontend</p>
+                    </div>
+                    <div className="skill flex flex-col items-center gap-2 md:gap-6">
+                        <div className="radial-progress font-semibold text-primary" style={{ "--value": "70", "--size": "calc(4vw + 4rem)", "--thickness": "calc(0.6vw + 0.6rem)" }}><span className='text-secondary'>70%</span></div>
+                        <p className='text-md text-base-content font-semibold md:text-xl lg:text-2xl'>Frontend</p>
+                    </div>
+                    <div className="skill flex flex-col items-center gap-2 md:gap-6">
+                        <div className="radial-progress font-semibold text-primary" style={{ "--value": "70", "--size": "calc(4vw + 4rem)", "--thickness": "calc(0.6vw + 0.6rem)" }}><span className='text-secondary'>70%</span></div>
+                        <p className='text-md text-base-content font-semibold md:text-xl lg:text-2xl'>Frontend</p>
+                    </div>
+                </div>
+            </div>
+            <div className='container mx-auto pt-24'>
+                <div className=' px-8 md:px-4'>
+                    <h1 id="experience" className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                        <span className=''>Experience</span>
+                        <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
+                            <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
+                                <g transform="translate(-261.000000, -990.000000)" fill="currentColor">
+                                    <g transform="translate(261.000000, 990.000000)">
+                                        <g id="section-title">
+                                            <g id="dots-bg">
+                                                <rect id="Rectangle" x="0" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy" x="11" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-2" x="22" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-3" x="33" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-7" x="0" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-6" x="11" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-5" x="22" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-4" x="33" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-15" x="0" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-14" x="11" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-13" x="22" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-12" x="33" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-11" x="0" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-10" x="11" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-9" x="22" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-8" x="33" y="33" width="4" height="4" rx="2" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </h1>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-8 px-3 mt-20">
+                    <div className="col-span-6 bg-base-300 rounded-box px-8 py-10 xl:py-14 relative">
+                        <div className="absolute bg-secondary w-1 h-[calc(100%-5.4rem)] xl:h-[calc(100%-7rem)] rounded-full xl:left-[4.5rem] left-[2.4rem]"></div>
+                        <div className="xl:pl-20 pl-12 relative mb-5">
+                            <div className=''>
+                                <div className="absolute left-[-0.6rem] xl:left-6 top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-mortarboard-fill text-primary" viewBox="0 0 16 16">
+                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
+                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z" />
+                                    </svg>
+                                </div>
+                                <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
+                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                            </div>
+                        </div>
+                        <div className="xl:pl-20 pl-12 relative mb-5">
+                            <div className=''>
+                                <div className="absolute left-[-0.6rem] xl:left-6 top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-mortarboard-fill text-primary" viewBox="0 0 16 16">
+                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
+                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z" />
+                                    </svg>
+                                </div>
+                                <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
+                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                            </div>
+                        </div>
+                        <div className="xl:pl-20 pl-12 relative mb-5">
+                            <div className=''>
+                                <div className="absolute left-[-0.6rem] xl:left-6 top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-mortarboard-fill text-primary" viewBox="0 0 16 16">
+                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
+                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z" />
+                                    </svg>
+                                </div>
+                                <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
+                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="col-span-6 bg-base-300 rounded-box px-8 py-10 xl:py-14 relative">
+                        <div className="absolute bg-secondary w-1 h-[calc(100%-5.4rem)] xl:h-[calc(100%-7rem)] rounded-full xl:left-[4.5rem] left-[2.4rem]"></div>
+                        <div className="xl:pl-20 pl-12 relative mb-5">
+                            <div className=''>
+                                <div className="absolute left-[-0.6rem] xl:left-6 top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
+                                        <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
+                                        <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
+                                    </svg>
+                                </div>
+                                <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
+                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                            </div>
+                        </div>
+                        <div className="xl:pl-20 pl-12 relative mb-5">
+                            <div className=''>
+                                <div className="absolute left-[-0.6rem] xl:left-6 top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
+                                        <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
+                                        <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
+                                    </svg>
+                                </div>
+                                <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
+                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                            </div>
+                        </div>
+                        <div className="xl:pl-20 pl-12 relative mb-5">
+                            <div className=''>
+                                <div className="absolute left-[-0.6rem] xl:left-6 top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
+                                        <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
+                                        <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
+                                    </svg>
+                                </div>
+                                <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
+                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     )

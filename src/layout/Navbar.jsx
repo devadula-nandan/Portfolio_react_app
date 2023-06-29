@@ -47,18 +47,19 @@ export default function Navbar() {
         localStorage.setItem("theme", theme);
     }, [theme]);
     return (
-        <div className="navbar bg-base-100 fixed top-0 border-b-2 border-base-200 z-10 p-2 md:p-4">
+        <div className="navbar bg-base-100 fixed top-0 border-b-2 border-base-200 z-20 p-2 md:p-4">
             <div className="container mx-auto">
                 <div className="flex-1">
                     <button className="ml-2 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-base-content font-['Righteous'] group">Nandan<span className="text-accent group-hover:text-primary ">.</span></button>
                 </div>
                 <div className="flex gap-3 md:gap-8 lg:gap-10 xl:gap-14">
-                    <div className="hidden md:flex items-center gap-3 md:gap-8 lg:gap-10 xl:gap-14">
+                    <div className="hidden lg:flex items-center gap-3 md:gap-8 lg:gap-10 xl:gap-14">
                         <a href="#home" className="text-accent font-extrabold">HOME</a>
                         <a href="#about" className=" font-extrabold">ABOUT</a>
-                        <a href="http://" className=" font-extrabold">EXPERIENCE</a>
-                        <a href="http://" className=" font-extrabold">WORKS</a>
-                        <a href="http://" className=" font-extrabold">CONTACT</a>
+                        <a href="#skills" className=" font-extrabold">SKILLS</a>
+                        <a href="#experience" className=" font-extrabold">EXPERIENCE</a>
+                        <a href="#works" className=" font-extrabold">WORKS</a>
+                        <a href="#contact" className=" font-extrabold">CONTACT</a>
                     </div>
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-sm btn-primary m-1 group pr-2 gap-1" title="theme">{theme}
@@ -75,7 +76,7 @@ export default function Navbar() {
                             ))}
                         </ul>
                     </div>
-                    <div className="drawer drawer-end w-auto md:hidden items-center">
+                    <div className="drawer drawer-end w-auto lg:hidden items-center">
                         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content flex items-center">
                             {/* Page content here */}
@@ -93,11 +94,12 @@ export default function Navbar() {
                                     </svg>
                                 </button></li>
                                 <li>
-                                <a href="#home" className="text-accent font-extrabold">HOME</a>
-                        <a href="#about" className=" font-extrabold">ABOUT</a>
-                        <a href="http://" className=" font-extrabold">EXPERIENCE</a>
-                        <a href="http://" className=" font-extrabold">WORKS</a>
-                        <a href="http://" className=" font-extrabold">CONTACT</a>
+                                    <a href="#home" className="text-accent font-extrabold">HOME</a>
+                                    <a href="#about" className=" font-extrabold">ABOUT</a>
+                                    <a href="#skills" className=" font-extrabold">SKILLS</a>
+                                    <a href="#experience" className=" font-extrabold">EXPERIENCE</a>
+                                    <a href="#works" className=" font-extrabold">WORKS</a>
+                                    <a href="#contact" className=" font-extrabold">CONTACT</a>
                                 </li>
 
                             </ul>
