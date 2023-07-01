@@ -119,12 +119,9 @@ export default function Navbar() {
                                     </svg>
                                 </button></li>
                                 <li onClick={() => { document.getElementById("my-drawer").checked = false }}>
-                                    <a href="#home" className="text-accent font-extrabold">HOME</a>
-                                    <a href="#about" className=" font-extrabold">ABOUT</a>
-                                    <a href="#skills" className=" font-extrabold">SKILLS</a>
-                                    <a href="#experience" className=" font-extrabold">EXPERIENCE</a>
-                                    <a href="#works" className=" font-extrabold">WORKS</a>
-                                    <a href="#contact" className=" font-extrabold">CONTACT</a>
+                                    {sectionIds.map((sectionId) => (
+                                        <a key={sectionId} href={`#${sectionId}`} className={"transition-all font-extrabold uppercase " + (activeSection === sectionId ? 'text-accent ' : '')} onClick={() => setActiveSection(sectionId)}>{sectionId}</a>
+                                    ))}
                                 </li>
 
                             </ul>
