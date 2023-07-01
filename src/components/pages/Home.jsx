@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Parallax from '../Parallax'
 import AnimateTyping from '../AnimateTyping'
 
@@ -9,7 +9,7 @@ function Home() {
                 <div className='h-screen relative container mx-auto' id='home'>
                     <div className="absolute w-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
                         <div className="flex flex-col items-center">
-                            <img className="shadow-md mb-8 h-28 w-28 rounded-full" src="https://bolby-react.vercel.app/images/avatar-1.svg" alt="" />
+                            <img className="shadow-md mb-8 h-28 w-28 rounded-full" src="https://prefrontality.be/wp-content/uploads/2016/10/user-placeholder.jpg" alt="" />
                             <button className="mb-3 transition-all duration-500 hover:text-secondary normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-primary font-['Righteous'] group">Nandan <span className="text-accent transition-all duration-500 group-hover:text-primary ">Devadula</span></button>
                             <AnimateTyping arr={["Web Developer", "Frontend Developer"]} />
                             <div className="flex gap-1 mb-3">
@@ -39,7 +39,7 @@ function Home() {
                                     </svg>
                                 </button>
                             </div>
-                            <button className="btn btn-accent text-accent-content">HIRE ME</button>
+                            <a href='#contact' className="btn btn-accent text-accent-content">Hire me</a>
                         </div>
                     </div>
                     <div className="absolute w-full bottom-0 left-1/2 -translate-y-1/3 -translate-x-1/2 flex justify-center">
@@ -52,9 +52,9 @@ function Home() {
                     </div>
                 </div>
             </Parallax>
-            <div className='container mx-auto pt-24'>
+            <div className='container mx-auto pt-24' id="about">
                 <div className=' px-8 md:px-4'>
-                    <h1 id="about" className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                    <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
                         <span className=''>About Me</span>
                         <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
                             <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
@@ -89,7 +89,7 @@ function Home() {
 
                 <div className='grid grid-cols-1 md:grid-cols-12 mt-20 px-3'>
                     <div className="person col-span-3">
-                        <img className="shadow-md max-w-[16rem] mx-auto md:mx-0 mb-8 w-3/4 rounded-full" src="https://bolby-react.vercel.app/images/avatar-1.svg" alt="" />
+                        <img className="shadow-md max-w-[16rem] mx-auto md:mx-0 mb-8 w-3/4 rounded-full" src="https://prefrontality.be/wp-content/uploads/2016/10/user-placeholder.jpg" alt="" />
                     </div>
                     <div className="col-span-9 drop-shadow-md relative">
                         <div className='h-8 w-8 rotate-45 mx-auto -mb-4 bg-base-300 block md:hidden'></div>
@@ -138,9 +138,9 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className='container mx-auto pt-24'>
+            <div className='container mx-auto pt-24' id="skills">
                 <div className=' px-8 md:px-4'>
-                    <h1 id="skills" className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                    <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
                         <span className=''>Skills</span>
                         <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
                             <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
@@ -199,9 +199,9 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className='container mx-auto pt-24'>
+            <div className='container mx-auto pt-24' id="experience">
                 <div className=' px-8 md:px-4'>
-                    <h1 id="experience" className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                    <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
                         <span className=''>Experience</span>
                         <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
                             <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
@@ -235,89 +235,290 @@ function Home() {
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-8 px-3 mt-20">
                     <div className="col-span-6 bg-base-300 rounded-box px-8 py-10 xl:py-14 relative">
-                        <div className="absolute bg-secondary w-1 h-[calc(100%-5.4rem)] xl:h-[calc(100%-7rem)] rounded-full xl:left-[4.5rem] left-[2rem]"></div>
+                        <div className="absolute bg-secondary w-1 h-[calc(100%-5.4rem)] xl:h-[calc(100%-6.4rem)] rounded-full xl:left-[4.5rem] left-[2rem]"></div>
                         <div className="xl:pl-20 pl-9 relative mb-5">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-6 top-6">
+                                <div className="absolute left-[-1rem] xl:left-6 top-[1.2rem]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-mortarboard-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
                                         <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z" />
                                     </svg>
                                 </div>
                                 <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
-                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
-                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                                <h3 className=' font-bold text-xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
                             </div>
                         </div>
                         <div className="xl:pl-20 pl-9 relative mb-5">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-6 top-6">
+                                <div className="absolute left-[-1rem] xl:left-6 top-[1.2rem]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-mortarboard-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
                                         <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z" />
                                     </svg>
                                 </div>
                                 <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
-                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
-                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                                <h3 className=' font-bold text-xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
                             </div>
                         </div>
-                        <div className="xl:pl-20 pl-9 relative mb-5">
+                        <div className="xl:pl-20 pl-9 relative">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-6 top-6">
+                                <div className="absolute left-[-1rem] xl:left-6 top-[1.2rem]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-mortarboard-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z" />
                                         <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z" />
                                     </svg>
                                 </div>
                                 <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
-                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
-                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                                <h3 className=' font-bold text-xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
                             </div>
                         </div>
 
+
                     </div>
                     <div className="col-span-6 bg-base-300 rounded-box px-8 py-10 xl:py-14 relative">
-                        <div className="absolute bg-secondary w-1 h-[calc(100%-5.4rem)] xl:h-[calc(100%-7rem)] rounded-full xl:left-[4.5rem] left-[2rem]"></div>
+                        <div className="absolute bg-secondary w-1 h-[calc(100%-5.4rem)] xl:h-[calc(100%-6.4rem)] rounded-full xl:left-[4.5rem] left-[2rem]"></div>
                         <div className="xl:pl-20 pl-9 relative mb-5">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-6 top-6">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
+                                <div className="absolute left-[-1rem] xl:left-[1.69rem] top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
                                         <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
                                     </svg>
                                 </div>
                                 <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
-                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
-                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                                <h3 className=' font-bold text-xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
                             </div>
                         </div>
                         <div className="xl:pl-20 pl-9 relative mb-5">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-6 top-6">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
+                                <div className="absolute left-[-1rem] xl:left-[1.69rem] top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
                                         <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
                                     </svg>
                                 </div>
                                 <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
-                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
-                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                                <h3 className=' font-bold text-xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
                             </div>
                         </div>
-                        <div className="xl:pl-20 pl-9 relative mb-5">
+                        <div className="xl:pl-20 pl-9 relative">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-6 top-6">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
+                                <div className="absolute left-[-1rem] xl:left-[1.69rem] top-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
                                         <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
                                     </svg>
                                 </div>
                                 <span className='text-sm font-semibold text-base-content/60'>2019 - Present</span>
-                                <h3 className=' font-bold text-2xl mb-2'>Acamedic Degree</h3>
-                                <p className='font-semibold text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
+                                <h3 className=' font-bold text-xl mb-2'>Acamedic Degree</h3>
+                                <p className='font-semibold text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum aliquid possimus quaerat?</p>
                             </div>
                         </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div className='container mx-auto pt-24' id="works">
+                <div className=' px-8 md:px-4'>
+                    <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                        <span className=''>Works</span>
+                        <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
+                            <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
+                                <g transform="translate(-261.000000, -990.000000)" fill="currentColor">
+                                    <g transform="translate(261.000000, 990.000000)">
+                                        <g id="section-title">
+                                            <g id="dots-bg">
+                                                <rect id="Rectangle" x="0" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy" x="11" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-2" x="22" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-3" x="33" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-7" x="0" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-6" x="11" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-5" x="22" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-4" x="33" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-15" x="0" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-14" x="11" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-13" x="22" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-12" x="33" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-11" x="0" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-10" x="11" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-9" x="22" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-8" x="33" y="33" width="4" height="4" rx="2" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </h1>
+                </div>
+                <div className="flex flex-wrap gap-2 lg:gap-4 mt-20 px-3 mb-8">
+                    <button className='btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm text-primary bg-primary/10'>Frontend</button>
+                    <button className='btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm'>Backend</button>
+                    <button className='btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm'>Fullstack</button>
+                    <button className='btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm'>Github</button>
+
+                </div>
+                <div className="px-3">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-8">
+                        <div className='col-span-1'>
+                            <div className="card w-full bg-base-100 shadow-xl">
+                                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">
+                                        Shoes!
+                                        <div className="badge badge-secondary">NEW</div>
+                                    </h2>
+                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <div className="card-actions justify-end">
+                                        <div className="badge badge-outline">Fashion</div>
+                                        <div className="badge badge-outline">Products</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className="card w-full bg-base-100 shadow-xl">
+                                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">
+                                        Shoes!
+                                        <div className="badge badge-secondary">NEW</div>
+                                    </h2>
+                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <div className="card-actions justify-end">
+                                        <div className="badge badge-outline">Fashion</div>
+                                        <div className="badge badge-outline">Products</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className="card w-full bg-base-100 shadow-xl">
+                                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">
+                                        Shoes!
+                                        <div className="badge badge-secondary">NEW</div>
+                                    </h2>
+                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <div className="card-actions justify-end">
+                                        <div className="badge badge-outline">Fashion</div>
+                                        <div className="badge badge-outline">Products</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className="card w-full bg-base-100 shadow-xl">
+                                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">
+                                        Shoes!
+                                        <div className="badge badge-secondary">NEW</div>
+                                    </h2>
+                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <div className="card-actions justify-end">
+                                        <div className="badge badge-outline">Fashion</div>
+                                        <div className="badge badge-outline">Products</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className="card w-full bg-base-100 shadow-xl">
+                                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">
+                                        Shoes!
+                                        <div className="badge badge-secondary">NEW</div>
+                                    </h2>
+                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <div className="card-actions justify-end">
+                                        <div className="badge badge-outline">Fashion</div>
+                                        <div className="badge badge-outline">Products</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-span-1'>
+                            <div className="card w-full bg-base-100 shadow-xl">
+                                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">
+                                        Shoes!
+                                        <div className="badge badge-secondary">NEW</div>
+                                    </h2>
+                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <div className="card-actions justify-end">
+                                        <div className="badge badge-outline">Fashion</div>
+                                        <div className="badge badge-outline">Products</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button className="btn btn-accent text-accent-content mx-auto block">Load more</button>
+                </div>
+            </div>
+            <div className='container mx-auto pt-24 pb-24' id="contact">
+                <div className=' px-8 md:px-4'>
+                    <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
+                        <span className=''>Get in Touch</span>
+                        <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
+                            <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
+                                <g transform="translate(-261.000000, -990.000000)" fill="currentColor">
+                                    <g transform="translate(261.000000, 990.000000)">
+                                        <g id="section-title">
+                                            <g id="dots-bg">
+                                                <rect id="Rectangle" x="0" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy" x="11" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-2" x="22" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-3" x="33" y="0" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-7" x="0" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-6" x="11" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-5" x="22" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-4" x="33" y="11" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-15" x="0" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-14" x="11" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-13" x="22" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-12" x="33" y="22" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-11" x="0" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-10" x="11" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-9" x="22" y="33" width="4" height="4" rx="2" />
+                                                <rect id="Rectangle-Copy-8" x="33" y="33" width="4" height="4" rx="2" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </h1>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-8 px-3 mt-20">
+                    <div className="col-span-4 rounded-box flex gap-4 flex-col mt-6 xl:mt-8">
+                        <h2 className='text-2xl font-semibold'>Let's talk about everything!</h2>
+                        <p>Don't like forms? Send me an email. 👋</p>
+                    </div>
+                    <div className="col-span-8 rounded-box py-8 xl:py-10">
+                        <form action="">
+                            <div className="flex flex-col gap-6 mb-6">
+                                <div className="flex gap-6 flex-col sm:flex-row">
+                                    <input type="text" placeholder="Your name" className="bg-primary-content input-primary text-primary font-semibold text-base input-md xl:text-lg xl:input-lg input input-bordered w-full" />
+                                    <input type="text" placeholder="Your email" className="bg-primary-content input-primary text-primary font-semibold text-base input-md xl:text-lg xl:input-lg input input-bordered w-full" />
+                                </div>
+                                <input type="text" placeholder="Subject" className="bg-primary-content input-primary text-primary font-semibold text-base input-md xl:text-lg xl:input-lg input input-bordered w-full" />
+                                <textarea className="textarea textarea-primary bg-primary-content text-primary font-semibold text-base textarea-md xl:text-lg xl:textarea-lg input input-bordered w-full h-20" placeholder="Message"></textarea>
+                            </div>
+                            <button className="btn btn-accent text-accent-content">Send Message</button>
+                        </form>
+
 
                     </div>
                 </div>

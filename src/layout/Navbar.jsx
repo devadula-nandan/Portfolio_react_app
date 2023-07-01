@@ -32,8 +32,10 @@ const themes = [
     "coffee",
     "winter",
 ]
+const sectionIds = ['home', 'about', 'skills', 'experience', 'works', 'contact'];
 
 export default function Navbar() {
+    const [activeSection, setActiveSection] = useState('');
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
     const blurEl = () => {
         const elem = document.activeElement;
@@ -46,6 +48,32 @@ export default function Navbar() {
         document.querySelector('html').setAttribute('data-theme', theme);
         localStorage.setItem("theme", theme);
     }, [theme]);
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = sectionIds.map((id) => document.getElementById(id));
+            const scrollPosition = window.pageYOffset;
+
+            let activeSection = '';
+
+            sections.forEach((section) => {
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (scrollPosition >= sectionTop - sectionHeight / 3) {
+                        activeSection = section.id;
+                    }
+                }
+            });
+
+            setActiveSection(activeSection);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
         <div className="navbar bg-base-100 fixed top-0 border-b-2 border-base-200 z-20 p-2 md:p-4">
             <div className="container mx-auto">
@@ -54,12 +82,9 @@ export default function Navbar() {
                 </div>
                 <div className="flex gap-3 md:gap-8 lg:gap-10 xl:gap-14">
                     <div className="hidden lg:flex items-center gap-3 md:gap-8 lg:gap-10 xl:gap-14">
-                        <a href="#home" className="text-accent font-extrabold">HOME</a>
-                        <a href="#about" className=" font-extrabold">ABOUT</a>
-                        <a href="#skills" className=" font-extrabold">SKILLS</a>
-                        <a href="#experience" className=" font-extrabold">EXPERIENCE</a>
-                        <a href="#works" className=" font-extrabold">WORKS</a>
-                        <a href="#contact" className=" font-extrabold">CONTACT</a>
+                        {sectionIds.map((sectionId) => (
+                            <a key={sectionId} href={`#${sectionId}`} className={"transition-all font-extrabold uppercase " + (activeSection === sectionId ? 'text-accent ' : '')} onClick={() => setActiveSection(sectionId)}>{sectionId}</a>
+                        ))}
                     </div>
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-sm btn-primary m-1 group pr-2 gap-1" title="theme">{theme}
