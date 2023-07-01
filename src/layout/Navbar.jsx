@@ -87,7 +87,7 @@ export default function Navbar() {
                         ))}
                     </div>
                     <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-sm btn-primary m-1 group pr-2 gap-1 flex-nowrap" title="theme">{theme}
+                        <label tabIndex={0} className="btn btn-sm btn-primary m-1 group pr-2 gap-1 text-xs md:text-sm flex-nowrap" title="theme">{theme}
                             <svg height="12" width="12" viewBox="0 0 1060.000000 1060.000000" fill="currentColor" className="group-focus:rotate-180 transition-all">
                                 <g transform="translate(0.000000,1060.000000) scale(0.100000,-0.100000)" stroke="none">
                                     <path d="M1100 8345 c-270 -55 -490 -224 -611 -470 -72 -148 -92 -246 -86 -415 3 -78 12 -160 22 -195 24 -89 97 -231 157 -307 79 -100 4025 -4444 4092 -4506 107 -97 254 -169 404 -198 102 -19 351 -18 450 2 153 31 306 108 412 207 59 56 4016 4416 4078 4495 60 76 133 218 157 307 9 33 19 119 22 192 7 169 -15 278 -87 421 -89 177 -220 307 -395 392 -127 61 -202 80 -346 87 -267 13 -490 -82 -686 -292 -48 -51 -828 -911 -1733 -1909 -905 -998 -1647 -1814 -1650 -1814 -3 0 -745 816 -1650 1814 -905 998 -1685 1858 -1733 1909 -187 200 -402 296 -654 294 -54 0 -127 -7 -163 -14z" />
