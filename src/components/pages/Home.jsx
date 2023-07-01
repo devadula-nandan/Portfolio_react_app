@@ -9,7 +9,7 @@ function Home() {
                 <div className='h-screen relative container mx-auto' id='home'>
                     <div className="absolute w-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
                         <div className="flex flex-col items-center">
-                            <img className="shadow-md mb-8 h-28 w-28 rounded-full" src="https://prefrontality.be/wp-content/uploads/2016/10/user-placeholder.jpg" alt="" />
+                            <img className="shadow-md mb-8 h-28 w-28 rounded-full bg-primary" src="https://ik.imagekit.io/jagwpg3pn/images/users/profile-image.png?updatedAt=1688202586175" alt="" />
                             <button className="mb-3 transition-all duration-500 hover:text-secondary normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-primary font-['Righteous'] group">Nandan <span className="text-accent transition-all duration-500 group-hover:text-primary ">Devadula</span></button>
                             <AnimateTyping arr={["Web Developer", "Frontend Developer"]} />
                             <div className="flex gap-1 mb-3">
@@ -52,8 +52,8 @@ function Home() {
                     </div>
                 </div>
             </Parallax>
-            <div className='container mx-auto pt-24' id="about">
-                <div className=' px-8 md:px-4'>
+            <div className='container mx-auto pt-24 px-3' id="about">
+                <div className='px-5 md:px-4'>
                     <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
                         <span className=''>About Me</span>
                         <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
@@ -87,9 +87,9 @@ function Home() {
                     </h1>
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-12 mt-20 px-3'>
+                <div className='grid grid-cols-1 md:grid-cols-12 mt-20'>
                     <div className="person col-span-3">
-                        <img className="shadow-md max-w-[16rem] mx-auto md:mx-0 mb-8 w-3/4 rounded-full" src="https://prefrontality.be/wp-content/uploads/2016/10/user-placeholder.jpg" alt="" />
+                        <img className="shadow-md max-w-[16rem] mx-auto md:mx-0 mb-8 w-3/4 rounded-full bg-primary" src="https://ik.imagekit.io/jagwpg3pn/images/users/profile-image.png?updatedAt=1688202586175" alt="" />
                     </div>
                     <div className="col-span-9 drop-shadow-md relative">
                         <div className='h-8 w-8 rotate-45 mx-auto -mb-4 bg-base-300 block md:hidden'></div>
@@ -138,8 +138,8 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className='container mx-auto pt-24' id="skills">
-                <div className=' px-8 md:px-4'>
+            <div className='container mx-auto pt-24 px-3' id="skills">
+                <div className='px-5 md:px-4'>
                     <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
                         <span className=''>Skills</span>
                         <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
@@ -172,7 +172,7 @@ function Home() {
                         </svg>
                     </h1>
                 </div>
-                <div className="flex flex-wrap mt-20 gap-6 md:gap-12 px-3 justify-center">
+                <div className="flex flex-wrap mt-20 gap-6 md:gap-12 justify-center">
                     <div className="skill flex flex-col items-center gap-2 md:gap-6">
                         <div className="radial-progress font-semibold text-primary" style={{ "--value": "70", "--size": "calc(4vw + 4rem)", "--thickness": "calc(0.6vw + 0.6rem)" }}><span className='text-secondary'>70%</span></div>
                         <p className='text-md text-base-content font-semibold md:text-xl lg:text-2xl'>Frontend</p>
@@ -199,8 +199,8 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className='container mx-auto pt-24' id="experience">
-                <div className=' px-8 md:px-4'>
+            <div className='container mx-auto pt-24 px-3' id="experience">
+                <div className='px-5 md:px-4'>
                     <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
                         <span className=''>Experience</span>
                         <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
@@ -233,7 +233,7 @@ function Home() {
                         </svg>
                     </h1>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-8 px-3 mt-20">
+                <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-8 mt-20">
                     <div className="col-span-6 bg-base-300 rounded-box px-8 py-10 xl:py-14 relative">
                         <div className="absolute bg-secondary w-1 h-[calc(100%-5.4rem)] xl:h-[calc(100%-6.4rem)] rounded-full xl:left-[4.5rem] left-[2rem]"></div>
                         <div className="xl:pl-20 pl-9 relative mb-5">
@@ -282,7 +282,7 @@ function Home() {
                         <div className="absolute bg-secondary w-1 h-[calc(100%-5.4rem)] xl:h-[calc(100%-6.4rem)] rounded-full xl:left-[4.5rem] left-[2rem]"></div>
                         <div className="xl:pl-20 pl-9 relative mb-5">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-[1.69rem] top-6">
+                                <div className="absolute left-[-0.8rem] xl:left-[1.69rem] top-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
                                         <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
@@ -295,7 +295,7 @@ function Home() {
                         </div>
                         <div className="xl:pl-20 pl-9 relative mb-5">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-[1.69rem] top-6">
+                                <div className="absolute left-[-0.8rem] xl:left-[1.69rem] top-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
                                         <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
@@ -308,7 +308,7 @@ function Home() {
                         </div>
                         <div className="xl:pl-20 pl-9 relative">
                             <div className=''>
-                                <div className="absolute left-[-1rem] xl:left-[1.69rem] top-6">
+                                <div className="absolute left-[-0.8rem] xl:left-[1.69rem] top-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-briefcase-fill text-primary" viewBox="0 0 16 16">
                                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z" />
                                         <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
@@ -324,8 +324,8 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className='container mx-auto pt-24' id="works">
-                <div className=' px-8 md:px-4'>
+            <div className='container mx-auto pt-24 px-3' id="works">
+                <div className='px-5 md:px-4'>
                     <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
                         <span className=''>Works</span>
                         <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
@@ -358,17 +358,17 @@ function Home() {
                         </svg>
                     </h1>
                 </div>
-                <div className="flex flex-wrap gap-2 lg:gap-4 mt-20 px-3 mb-8">
+                <div className="flex flex-wrap gap-2 lg:gap-4 mt-20 mb-8">
                     <button className='btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm text-primary bg-primary/10'>Frontend</button>
                     <button className='btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm'>Backend</button>
                     <button className='btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm'>Fullstack</button>
                     <button className='btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm'>Github</button>
 
                 </div>
-                <div className="px-3">
+                <div className="">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-8">
                         <div className='col-span-1'>
-                            <div className="card w-full bg-base-100 shadow-xl">
+                            <div className="card w-full bg-base-300 shadow-xl">
                                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
@@ -384,7 +384,7 @@ function Home() {
                             </div>
                         </div>
                         <div className='col-span-1'>
-                            <div className="card w-full bg-base-100 shadow-xl">
+                            <div className="card w-full bg-base-300 shadow-xl">
                                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
@@ -400,7 +400,7 @@ function Home() {
                             </div>
                         </div>
                         <div className='col-span-1'>
-                            <div className="card w-full bg-base-100 shadow-xl">
+                            <div className="card w-full bg-base-300 shadow-xl">
                                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
@@ -416,7 +416,7 @@ function Home() {
                             </div>
                         </div>
                         <div className='col-span-1'>
-                            <div className="card w-full bg-base-100 shadow-xl">
+                            <div className="card w-full bg-base-300 shadow-xl">
                                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
@@ -432,7 +432,7 @@ function Home() {
                             </div>
                         </div>
                         <div className='col-span-1'>
-                            <div className="card w-full bg-base-100 shadow-xl">
+                            <div className="card w-full bg-base-300 shadow-xl">
                                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
@@ -448,7 +448,7 @@ function Home() {
                             </div>
                         </div>
                         <div className='col-span-1'>
-                            <div className="card w-full bg-base-100 shadow-xl">
+                            <div className="card w-full bg-base-300 shadow-xl">
                                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
@@ -467,8 +467,8 @@ function Home() {
                     <button className="btn btn-accent text-accent-content mx-auto block">Load more</button>
                 </div>
             </div>
-            <div className='container mx-auto pt-24 pb-24' id="contact">
-                <div className=' px-8 md:px-4'>
+            <div className='container mx-auto pt-24 px-3 pb-24' id="contact">
+                <div className='px-5 md:px-4'>
                     <h1 className="relative z-10 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-4xl  font-extrabold text-base-content font-['Righteous'] group-hover:text-accent-content">
                         <span className=''>Get in Touch</span>
                         <svg className='absolute -left-4 -top-2 opacity-60 text-accent -z-10' width="37px" height="37px" viewBox="0 0 37 37">
@@ -501,12 +501,12 @@ function Home() {
                         </svg>
                     </h1>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-8 px-3 mt-20">
-                    <div className="col-span-4 rounded-box flex gap-4 flex-col mt-6 xl:mt-8">
+                <div className="flex flex-col w-full lg:flex-row justify-center gap-6 md:gap-8 mt-20">
+                    <div className="rounded-box flex gap-4 flex-col mt-6 xl:mt-8">
                         <h2 className='text-2xl font-semibold'>Let's talk about everything!</h2>
-                        <p>Don't like forms? Send me an email. 👋</p>
+                        <p className='font-semibold'>Don't like forms? Send me an email. 👋</p>
                     </div>
-                    <div className="col-span-8 rounded-box py-8 xl:py-10">
+                    <div className="rounded-box py-8 xl:py-10 ml-auto max-w-4xl">
                         <form action="">
                             <div className="flex flex-col gap-6 mb-6">
                                 <div className="flex gap-6 flex-col sm:flex-row">

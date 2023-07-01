@@ -95,7 +95,7 @@ export default function Navbar() {
                             </svg>
                         </label>
 
-                        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box max-h-[90vh] flex-row overflow-auto">
+                        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-300 rounded-box max-h-[90vh] flex-row overflow-auto">
                             {themes.map((t) => (
                                 <li className="w-full" key={t}> <button className={"" + (t === theme ? "active" : "")} onClick={() => { setTheme(t); blurEl(); }}>{t}</button> </li>
                             ))}
