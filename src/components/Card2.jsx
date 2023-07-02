@@ -5,7 +5,6 @@ function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
 function Card2({ repo }) {
-console.log(repo.languages);
 
     return (
         <div className="card bg-base-200 overflow-hidden shadow-md" onClick={() => { console.log(repo) }}>
