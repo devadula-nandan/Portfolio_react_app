@@ -1,28 +1,48 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
 function Card2({ repo }) {
-    const [languages, setLanguages] = useState({})
-    useEffect(() => {
-        const getLanguages = async () => {
-            const res = await axios.get('https://api.github.com/repos/' + repo.owner.login + '/' + repo.name + '/languages')
-            setLanguages(res.data)
-        }
-        getLanguages()
-    }, [])
+console.log(repo.languages);
+
     return (
-        <div className="card lg:card-side bg-base-200 overflow-hidden shadow-xl" onClick={()=>{console.log(repo)}}>
-            <img className=' max-h-40 h-full aspect-square' src={repo.owner.avatar_url} alt="Album" />
-            <div className="card-body">
-                <h2 className="card-title">{repo.name}</h2>
-                <p>{repo.description}</p>
-                {Object.keys(languages).map((lang) => {
-                    return <div className="badge badge-primary" key={lang}>{lang}</div>
+        <div className="card bg-base-200 overflow-hidden shadow-md" onClick={() => { console.log(repo) }}>
+            <div className=' flex flex-row mb-2'>
+                <img className=' max-h-20 h-full aspect-square' src={repo.owner.avatar_url} alt="Album" />
+                <div className="card-body p-3 bg-accent/20">
+                    <h2 className="card-title line-clamp-2 text-base-content leading-snug">{repo.name.split('-').join(' ')}</h2>
+
+
+
+                    {/* <pre>{JSON.stringify(repo, null, 2)}</pre> */}
+
+                </div>
+            </div>
+            <p className='line-clamp-2 px-4 mb-2 text-base-content/80 font-medium'>{repo.description}</p>
+            <div className="flex gap-x-1 flex-wrap px-4 mt-auto mb-3">
+                {Object.keys(repo.languages).map((lang) => {
+                    return (
+                        <div key={lang} className="tooltip" data-tip={repo.languages[lang] + " Bytes"}>
+                            <div className=" drop-shadow badge badge-base-content badge-outline cursor-default" key={lang}>{lang}</div>
+                        </div>
+                    )
                 })}
-                {/* <pre>{JSON.stringify(repo, null, 2)}</pre> */}
+                {isEmpty(repo.languages) &&
+                    <div className=' flex flex-wrap gap-1'>
+                        <div class="h-6 bg-base-300 animate-pulse w-16 rounded-full"></div>
+                        <div class="h-6 bg-base-300 animate-pulse w-12 rounded-full"></div>
+                        <div class="h-6 bg-base-300 animate-pulse w-20 rounded-full"></div>
+                    </div>}
+            </div>
+            {/* {repo.stargazers_count} */}
+            <div className="flex justify-between">
+                <a href={repo.html_url} target="_blank" rel="noreferrer" className="btn rounded-s-none rounded-tr-lg rounded-br-none rounded-e-lg btn-xs btn-primary bg-primary/80 text-primary-content hover:text-primary-content border-0">visit repo</a>
                 {repo.homepage &&
-                    <div className="card-actions justify-end">
-                        <a href={repo.homepage} target="_blank" rel="noreferrer" className="btn btn-xs btn-primary">View project</a>
-                    </div>
+
+                    <a href={repo.homepage} target="_blank" rel="noreferrer" className="btn rounded-e-none rounded-tl-lg rounded-bl-none rounded-s-lg btn-xs btn-primary bg-primary/80 text-primary-content hover:text-primary-content border-0">View project</a>
+
                 }
             </div>
         </div>

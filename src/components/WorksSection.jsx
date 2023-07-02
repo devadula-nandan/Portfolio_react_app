@@ -35,7 +35,7 @@ function WorksSection() {
                     <Github />
                 }
 
-                <button className="btn btn-accent text-accent-content mx-auto block">Load more</button>
+                {/* <button className="btn btn-accent text-accent-content mx-auto block">Load more</button> */}
             </div>
         </div>
     )
