@@ -10,8 +10,8 @@ console.log(repo.languages);
     return (
         <div className="card bg-base-200 overflow-hidden shadow-md" onClick={() => { console.log(repo) }}>
             <div className=' flex flex-row mb-2'>
-                <img className=' max-h-20 h-full aspect-square' src={repo.owner.avatar_url} alt="Album" />
-                <div className="card-body p-3 bg-accent/20">
+                <img className=' bg-base-300 max-h-20 h-full aspect-square' src={repo.owner.avatar_url} alt="Album" />
+                <div className="card-body p-3 bg-base-300">
                     <h2 className="card-title line-clamp-2 text-base-content leading-snug">{repo.name.split('-').join(' ')}</h2>
 
 
