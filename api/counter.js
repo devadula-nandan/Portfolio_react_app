@@ -1,17 +1,29 @@
 const fs = require('fs');
 
-let count = 0;
+const countFilePath = 'count.txt';
 
 const incrementCount = () => {
+  let count = 0;
+  if (fs.existsSync(countFilePath)) {
+    const storedCount = fs.readFileSync(countFilePath, 'utf-8');
+    count = parseInt(storedCount, 10);
+  }
   count++;
-  fs.writeFileSync('count.txt', count.toString());
+  fs.writeFileSync(countFilePath, count.toString());
+  return count;
 };
+
+const ensureCountFileExists = () => {
+  if (!fs.existsSync(countFilePath)) {
+    fs.writeFileSync(countFilePath, '0');
+  }
+};
+
+ensureCountFileExists();
 
 const handler = (req, res) => {
   if (req.method === 'GET') {
-    incrementCount();
-    const storedCount = fs.readFileSync('count.txt', 'utf-8');
-    count = parseInt(storedCount, 10);
+    const count = incrementCount();
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.setHeader('Access-Control-Allow-Methods', 'GET');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
