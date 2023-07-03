@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 
 function Card2({ repo }) {
-
-
     return (
         <div className="card bg-base-200 overflow-hidden shadow-md min-h-[204px]" onClick={()=>{console.log(repo.hiddenData);}}>
             <div className="flex flex-row mb-2">
