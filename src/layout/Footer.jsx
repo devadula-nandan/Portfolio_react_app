@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 function Footer() {
-    const [count, setCount] = useState(0);
+    const [visitors, setVisitors] = useState(0)
     useEffect(() => {
-         
-         getCount();
-    }, []);
-    async function getCount() {
-        const res = await axios.get('https://portfolio-devadula-nandan.vercel.app/api/counter');
-        setCount(res.data.count);
-    }
+        axios.get('https://mysql-express-api.vercel.app/counter/count/c9329d5d-f1a5-405c-90fa-874b796a5acf').then((res) => {
+            setVisitors(res.data.count)
+        })
+    }, [])
     return (
         <div className=' bg-primary-focus text-primary-content border-t-2 border-base-200'>
 
@@ -24,7 +21,7 @@ function Footer() {
 
                         <div className="stat">
                             <div className="stat-title">Total Page Views</div>
-                            <div className="stat-value">{count}</div>
+                            <div className="stat-value">{visitors}</div>
                             <div className="stat-desc">21% more than last month</div>
                         </div>
 
