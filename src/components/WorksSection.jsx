@@ -14,7 +14,7 @@ function WorksSection() {
         try {
             const { data } = await axios.get('https://api.github.com/users/devadula-nandan/repos', {
                 headers: {
-                    Authorization: `Bearer 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`,
+                    Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
                 },
             });
 
