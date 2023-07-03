@@ -64,13 +64,13 @@ function Github() {
                 <ul className="flex items-center">
                     {Array.from({ length: pagination.totalPages }).map((_, index) => (
                         <li key={index}>
-                            <button
+                            <a href='#github'
                                 className={`${pagination.activePage === index + 1 ? 'bg-accent/40 text-accent-content' : 'text-base-content'
                                     } hover:bg-accent/40 hover:text-accent-content transition-all font-semibold rounded-md px-4 py-2 mx-1`}
                                 onClick={() => handlePageChange(index + 1)}
                             >
                                 {index + 1}
-                            </button>
+                            </a>
                         </li>
                     ))}
                 </ul>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Heading from './Heading';
 import Card1 from './Card1';
-import Github from './Github';
+// import Github from './Github';
 import works from './works.json';
 
 function WorksSection() {
@@ -35,8 +35,8 @@ function WorksSection() {
                 return 'fullstack';
             case 4:
                 return 'api';
-            case 5:
-                return 'github';
+            // case 5:
+            //     return 'github';
             default:
                 return '';
         }
@@ -95,44 +95,44 @@ function WorksSection() {
                 >
                     API
                 </button>
-                <button
+                {/* <button
                     className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${active === 5 ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
                         }`}
                     onClick={() => filterWorks(5)}
                 >
                     Github
-                </button>
+                </button> */}
             </div>
             <div className="">
-                {active === 5 ? (
+                {/* {active === 5 ? (
                     <Github />
                 ) : (
-                    <>
+                    <> */}
                         {active === 0 || active === 1 || active === 2 || active === 3 || active === 4 ? (
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gap-10 lg:gap-8 md:gap-6 gap-4 mb-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-10 lg:gap-8 md:gap-6 gap-4 mb-8">
                                 {currentCards.map((work) => (
                                     <Card1 key={work.id} work={work} />
                                 ))}
                             </div>
                         ) : null}
                         <div className="flex justify-center mt-4">
-                            <button
-                                className="btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm"
+                            <a href='#works'
+                                className="btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm text-primary bg-primary/10"
                                 onClick={prevPage}
                                 disabled={currentPage === 1}
                             >
                                 Previous
-                            </button>
-                            <button
-                                className="btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ml-4"
+                            </a>
+                            <a href='#works'
+                                className="btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ml-4 text-primary bg-primary/10"
                                 onClick={nextPage}
                                 disabled={indexOfLastCard >= filteredWorks.length}
                             >
                                 Next
-                            </button>
+                            </a>
                         </div>
-                    </>
-                )}
+                    {/* </>
+                )} */}
             </div>
 
         </div>
