@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-
+import axios from 'axios';
 function Footer() {
     const [count, setCount] = useState(0);
     useEffect(() => {
-        fetch('/api/counter')
-          .then((response) => response.json())
-          .then((data) => setCount(data.count));
-      }, []);
+         async function getCount() {
+             const res = await axios.get('https://portfolio-devadula-nandan.vercel.app/api/counter');
+             console.log(res);
+         }
+    })
     return (
         <div className=' bg-primary-focus text-primary-content border-t-2 border-base-200'>
 
