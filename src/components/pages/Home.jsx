@@ -6,7 +6,6 @@ import ExperienceSection from '../ExperienceSection'
 import SkillsSection from '../SkillsSection'
 import AboutSection from '../AboutSection'
 import HomeSection from '../HomeSection'
-import GithubSection from '../GithubSection'
 
 function Home() {
     return (
@@ -18,7 +17,6 @@ function Home() {
             <SkillsSection />
             <ExperienceSection />
             <WorksSection />
-            <GithubSection />
             <ContactSection />
         </div>
     )
