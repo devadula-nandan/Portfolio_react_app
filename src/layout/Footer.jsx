@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
 function Footer() {
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+        fetch('/api/counter')
+          .then((response) => response.json())
+          .then((data) => setCount(data.count));
+      }, []);
     return (
         <div className=' bg-primary-focus text-primary-content border-t-2 border-base-200'>
 
@@ -15,7 +21,7 @@ function Footer() {
 
                         <div className="stat">
                             <div className="stat-title">Total Page Views</div>
-                            <div className="stat-value">89,400</div>
+                            <div className="stat-value">{count}</div>
                             <div className="stat-desc">21% more than last month</div>
                         </div>
 

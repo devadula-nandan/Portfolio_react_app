@@ -7,7 +7,7 @@ function isEmpty(obj) {
 function Card2({ repo }) {
 
     return (
-        <div className="card bg-base-200 overflow-hidden shadow-md" onClick={() => { console.log(repo) }}>
+        <div className="card bg-base-200 overflow-hidden shadow-md min-h-[204px]" onClick={() => { console.log(repo) }}>
             <div className=' flex flex-row mb-2'>
                 <img className=' bg-base-300 max-h-20 h-full aspect-square' src={repo.owner.avatar_url} alt="Album" />
                 <div className="card-body p-3 bg-base-300">
@@ -30,9 +30,9 @@ function Card2({ repo }) {
                 })}
                 {isEmpty(repo.languages) &&
                     <div className=' flex flex-wrap gap-1'>
-                        <div class="h-6 bg-base-300 animate-pulse w-16 rounded-full"></div>
-                        <div class="h-6 bg-base-300 animate-pulse w-12 rounded-full"></div>
-                        <div class="h-6 bg-base-300 animate-pulse w-20 rounded-full"></div>
+                        <div className="h-6 bg-base-300 animate-pulse w-16 rounded-full"></div>
+                        <div className="h-6 bg-base-300 animate-pulse w-12 rounded-full"></div>
+                        <div className="h-6 bg-base-300 animate-pulse w-20 rounded-full"></div>
                     </div>}
             </div>
             {/* {repo.stargazers_count} */}
