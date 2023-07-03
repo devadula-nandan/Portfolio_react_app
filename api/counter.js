@@ -1,12 +1,10 @@
 let count = 0;
 
 const handler = (req, res) => {
-  if (req.method === 'GET') {
+  if (req.method === 'GET') { 
+    ++ count;
     res.status(200).json({ count });
-  } else if (req.method === 'POST') {
-    count++;
-    res.status(200).json({ count });
-  } else {
+  }  else {
     res.status(405).end();
   }
 };
