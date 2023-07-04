@@ -31,7 +31,7 @@ function Card2({ repo }) {
             <p className="line-clamp-2 px-4 mb-2 text-base-content/80 font-medium">
                 {repo.description}
             </p>
-            <div className="flex gap-x-1 flex-wrap px-4 mt-auto mb-3">
+            <div className="flex gap-1 flex-wrap px-4 mt-auto mb-3">
                 {repo.hiddenData?.tech?.map((tech) => (
                     <div className=" drop-shadow badge badge-base-content badge-outline cursor-default" key={tech}>{tech}</div>
                 ))}
