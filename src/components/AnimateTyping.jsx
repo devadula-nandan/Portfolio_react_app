@@ -7,6 +7,11 @@ const AnimateTyping = ({ arr }) => {
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (!arr || arr.length === 0) {
+      // Handle the case when 'arr' is not present or empty
+      return;
+    }
+
     const interval = setInterval(() => {
       if (!isDeleting && !isPaused) {
         if (currentText === arr[currentIndex]) {
@@ -34,12 +39,15 @@ const AnimateTyping = ({ arr }) => {
     return () => clearInterval(interval);
   }, [arr, currentIndex, currentText, isDeleting, isPaused]);
 
+  if (!arr || arr.length === 0) {
+    // Handle the case when 'arr' is not present or empty
+    return null;
+  }
+
   return (
     <div className="text-xl mb-3 font-['Russo_One'] flex">
-        I'm a {currentText}
-      <span
-        className="opacity-0 animate-pulse inline-block h-auto my-1 w-1 bg-accent mx-1"
-      />
+      I'm a {currentText}
+      <span className="opacity-0 animate-pulse inline-block h-auto my-1 w-1 bg-accent mx-1" />
     </div>
   );
 };

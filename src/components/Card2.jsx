@@ -3,14 +3,26 @@ import React, { useState, useEffect } from 'react';
 
 function Card2({ repo }) {
     return (
-        <div className="card bg-base-200 overflow-hidden shadow-md min-h-[204px]" onClick={()=>{console.log(repo.hiddenData);}}>
+        <div className="card group bg-base-200 overflow-hidden shadow-md min-h-[204px]" onClick={() => { console.log(repo.hiddenData); }}>
+            <div className="carousel w-full">
+                {repo?.hiddenData?.snapshots && repo?.hiddenData?.snapshots.map((snapshot,index) => (
+                    <div id={`slide${index}`} className="carousel-item relative w-full" key={index}>
+                    <img src={snapshot} className="w-full" />
+                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href={`#slide${index-1}`} className="btn btn-circle group-hover:btn-primary btn-sm">❮</a>
+                        <a href={`#slide${index+1}`} className="btn btn-circle group-hover:btn-primary btn-sm">❯</a>
+                    </div>
+                </div>
+                ))}
+                
+            </div>
             <div className="flex flex-row mb-2">
-                <img
+                {/* <img
                     className="bg-base-300 max-h-20 h-full aspect-square"
                     src={repo.owner.avatar_url}
                     alt="Album"
-                />
-                <div className="card-body p-3 bg-base-300">
+                /> */}
+                <div className="card-body p-3 bg-base-300 group-hover:bg-primary group-hover:text-primary-content">
                     <h2 className="card-title line-clamp-2 text-base-content leading-snug">
                         {repo.name.split('_').join(' ')}
                     </h2>

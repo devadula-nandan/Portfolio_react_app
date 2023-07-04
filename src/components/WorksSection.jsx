@@ -33,6 +33,7 @@ function WorksSection() {
             );
 
             setRepos(filteredData);
+            // console.log(filteredData);
             setPagination({
                 itemsPerPage: 6,
                 activePage: 1,

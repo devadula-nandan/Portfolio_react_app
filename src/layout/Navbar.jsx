@@ -34,7 +34,7 @@ const themes = [
 ]
 const sectionIds = ['home', 'about', 'skills', 'experience', 'works', 'contact'];
 
-export default function Navbar() {
+export default function Navbar({firstName}) {
     const [activeSection, setActiveSection] = useState('');
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
     const blurEl = () => {
@@ -78,7 +78,7 @@ export default function Navbar() {
         <div className="navbar bg-base-100 fixed top-0 border-b-2 border-base-200 z-20 p-2 md:p-4">
             <div className="container mx-auto">
                 <div className="flex-1">
-                    <button className="ml-2 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-base-content font-['Righteous'] group">Nandan<span className="text-accent group-hover:text-primary ">.</span></button>
+                    <button className="ml-2 transition-all normal-case text-3xl md:text-3xl lg:text-4xl xl:text-5xl  font-extrabold text-base-content font-['Righteous'] group">{firstName}<span className="text-accent group-hover:text-primary ">.</span></button>
                 </div>
                 <div className="flex gap-3 md:gap-8 lg:gap-10 xl:gap-14">
                     <div className="hidden lg:flex items-center gap-3 md:gap-8 lg:gap-10 xl:gap-14">

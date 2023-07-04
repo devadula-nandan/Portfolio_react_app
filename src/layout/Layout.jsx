@@ -1,14 +1,17 @@
+import React, { useState, useEffect } from 'react';
 import Navbar from "./Navbar"
 import Footer from "./Footer"
-export default function Layout({ children }) {
-return (
+
+export default function Layout({ children, firstName }) {
+
+    return (
         <>
-            <Navbar/>
+            <Navbar firstName={firstName} />
             <div className="">
                 {children}
             </div>
             {/* <p>footer</p> */}
-            <Footer/>
+            <Footer />
 
         </>
 
