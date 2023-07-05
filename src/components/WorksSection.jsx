@@ -5,14 +5,14 @@ import Card2Skeleton from './Card2Skeleton';
 import Heading from './Heading';
 const base64 = require('js-base64').Base64;
 
-function WorksSection() {
+function WorksSection({githubName}) {
     const [active, setActive] = useState(0);
     const [repos, setRepos] = useState([]);
     const [pagination, setPagination] = useState({});
 
     const getGithubRepos = async () => {
         try {
-            const { data } = await axios.get('https://api.github.com/users/devadula-nandan/repos', {
+            const { data } = await axios.get(`https://api.github.com/users/${githubName}/repos`, {
                 headers: {
                     Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
                 },
@@ -55,8 +55,10 @@ function WorksSection() {
     };
 
     useEffect(() => {
-        getGithubRepos();
-    }, []);
+        if(githubName){
+            getGithubRepos();
+        }
+    }, [githubName]);
 
     const handlePageChange = (page) => {
         setPagination((prevState) => ({
