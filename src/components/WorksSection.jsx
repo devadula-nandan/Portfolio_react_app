@@ -5,109 +5,105 @@ import Card2Skeleton from './Card2Skeleton';
 import Heading from './Heading';
 const base64 = require('js-base64').Base64;
 
-function WorksSection({githubName}) {
-    const [active, setActive] = useState(0);
-    const [repos, setRepos] = useState([]);
-    const [pagination, setPagination] = useState({});
+function WorksSection({ githubName }) {
+  const [active, setActive] = useState(0);
+  const [repos, setRepos] = useState([]);
+  const [pagination, setPagination] = useState({});
 
-    const getGithubRepos = async () => {
-        try {
-            const { data } = await axios.get(`https://api.github.com/users/${githubName}/repos`, {
-                headers: {
-                    Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
-                },
-            });
+  const getGithubRepos = async () => {
+    try {
+      const { data } = await axios.get(`https://api.github.com/users/${githubName}/repos`, {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
+        },
+      });
 
-            const filteredData = data.filter((repo) => /_/g.test(repo.name));
-            await Promise.all(
-                filteredData.map(async (repo) => {
-                    const repoReadme = await fetchRepoReadme(repo.full_name);
-                    repo.readme = repoReadme;
-                    const match = repo.readme.split('\n')[0].match(/<!--\s*'(.*)'\s*-->/);
-                    if (match) {
-                        const jsonData = JSON.parse(match[1].replace(/\\(.)/g, '$1'));
-                        repo.hiddenData = jsonData;
-                    }
-                })
-            );
+      const filteredData = data.filter((repo) => /_/g.test(repo.name));
+      await Promise.all(
+        filteredData.map(async (repo) => {
+          const repoReadme = await fetchRepoReadme(repo.full_name);
+          repo.readme = repoReadme;
+          const match = repo.readme.split('\n')[0].match(/<!--\s*'(.*)'\s*-->/);
+          if (match) {
+            const jsonData = JSON.parse(match[1].replace(/\\(.)/g, '$1'));
+            repo.hiddenData = jsonData;
+          }
+        })
+      );
 
-            setRepos(filteredData);
-            // console.log(filteredData);
-            setPagination({
-                itemsPerPage: 6,
-                activePage: 1,
-                totalPages: Math.ceil(filteredData.length / 6),
-            });
-        } catch (error) {
-            console.error(`Failed to fetch repos:`, error);
-        }
-    };
+      setRepos(filteredData);
+      setPagination({
+        itemsPerPage: 6,
+        activePage: 1,
+        totalPages: Math.ceil(filteredData.length / 6),
+      });
+    } catch (error) {
+      console.error(`Failed to fetch repos:`, error);
+    }
+  };
 
-    const fetchRepoReadme = async (repoFullName) => {
-        try {
-            const readmeRes = await axios.get(`https://api.github.com/repos/${repoFullName}/readme`);
-            const readmeContent = base64.decode(readmeRes.data.content);
-            return readmeContent;
-        } catch (error) {
-            console.error(`Failed to fetch readme for ${repoFullName}:`, error);
-            return '';
-        }
-    };
+  const fetchRepoReadme = async (repoFullName) => {
+    try {
+      const readmeRes = await axios.get(`https://api.github.com/repos/${repoFullName}/readme`);
+      const readmeContent = base64.decode(readmeRes.data.content);
+      return readmeContent;
+    } catch (error) {
+      console.error(`Failed to fetch readme for ${repoFullName}:`, error);
+      return '';
+    }
+  };
 
-    useEffect(() => {
-        if(githubName){
-            getGithubRepos();
-        }
-    }, [githubName]);
+  useEffect(() => {
+    if (githubName) {
+      getGithubRepos();
+    }
+  }, [githubName]);
 
-    const handlePageChange = (page) => {
-        setPagination((prevState) => ({
-            ...prevState,
-            activePage: page,
-        }));
-    };
+  const handlePageChange = (page) => {
+    setPagination((prevState) => ({
+      ...prevState,
+      activePage: page,
+    }));
+  };
 
-    const indexOfLastRepo = pagination.activePage * pagination.itemsPerPage;
-    const indexOfFirstRepo = indexOfLastRepo - pagination.itemsPerPage;
-    const currentRepos = repos.slice(indexOfFirstRepo, indexOfLastRepo);
+  const handleFilterChange = (index) => {
+    setActive(index);
+  };
+  const getFilterTag = (index) => {
+    const tags = ['all', 'frontend', 'backend', 'fullstack', 'api'];
+    return tags[index];
+  };
+  const filteredRepos = repos.filter((repo) => {
+    if (active === 0) {
+      return true;
+    } else {
+      return repo.hiddenData?.tags?.includes(getFilterTag(active));
+    }
+  });
 
-    return (
-        <div className="container mx-auto pt-24 px-3" id="works">
-            <div className="px-5 md:px-4">
-                <Heading text="Works" />
-            </div>
-            <div className="flex flex-wrap gap-2 lg:gap-4 mt-20 mb-8">
-                <button
-                    className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${active === 0 ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
-                        }`}
-                >
-                    All
-                </button>
-                <button
-                    className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${active === 1 ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
-                        }`}
-                >
-                    Frontend
-                </button>
-                <button
-                    className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${active === 2 ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
-                        }`}
-                >
-                    Backend
-                </button>
-                <button
-                    className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${active === 3 ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
-                        }`}
-                >
-                    Fullstack
-                </button>
-                <button
-                    className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${active === 4 ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
-                        }`}
-                >
-                    API
-                </button>
-            </div>
+
+
+  const indexOfLastRepo = pagination.activePage * pagination.itemsPerPage;
+  const indexOfFirstRepo = indexOfLastRepo - pagination.itemsPerPage;
+  const currentRepos = filteredRepos.slice(indexOfFirstRepo, indexOfLastRepo);
+
+  return (
+    <div className="container mx-auto pt-24 px-3" id="works">
+      {/* Rest of the component code */}
+
+      <div className="flex flex-wrap gap-2 lg:gap-4 mt-20 mb-8">
+        {['all', 'frontend', 'backend', 'fullstack', 'api'].map((tag, index) => (
+          <button
+            key={index}
+           className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${
+              active === index ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
+            }`}
+            onClick={() => handleFilterChange(index)}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-10 lg:gap-8 md:gap-6 gap-4 mb-8">
                 {currentRepos.length === 0 ? (
                     Array.from({ length: 6 }).map((_, index) => <Card2Skeleton key={index} />)

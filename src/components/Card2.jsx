@@ -27,7 +27,7 @@ function Card2({ repo }) {
                     src={repo.owner.avatar_url}
                     alt="Album"
                 /> */}
-                <div className="card-body p-3 bg-base-300 text-base-content group-hover:bg-primary/80 group-hover:text-primary-content">
+                <div className="card-body p-3 bg-base-300 text-base-content group-hover:bg-primary/80 group-hover:text-primary-content duration-300">
                     <h2 className="card-title line-clamp-2 leading-snug">
                         {repo.name.split('_').join(' ')}
                     </h2>
@@ -41,8 +41,8 @@ function Card2({ repo }) {
                     placeholder
                 }
 
-                <div className="absolute h-full w-full backdrop-blur-sm bg-base-300/90 invisible group-hover:visible">
-                    <p className="px-4 mb-2 text-base-content font-medium opacity-0 py-3 group-hover:animate-slide-up">
+                <div className="absolute h-full w-full backdrop-blur-sm bg-base-300/90 invisible group-hover:visible transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
+                    <p className="px-4 mb-2 text-base-content font-medium py-3 transition-transform duration-300 ease-in-out translate-y-16 group-hover:translate-y-0">
                         {repo.description}
                     </p>
                 </div>
