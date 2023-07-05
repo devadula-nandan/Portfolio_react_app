@@ -47,7 +47,7 @@ function PortfolioHome() {
                 <AboutSection user={user} />
                 <SkillsSection skills={user?.specificSkills} />
                 <ExperienceSection experience={user?.experience} />
-                <WorksSection works={user?.works} />
+                <WorksSection works={user?.works} githubName={githubName} />
                 <ContactSection />
             </div>
         </Layout>
