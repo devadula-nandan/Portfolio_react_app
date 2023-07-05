@@ -12,8 +12,9 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/users/:githubName" element={<PortfolioHome />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="/users/:githubName" element={<PortfolioHome />} /> */}
+        <Route path="/" element={<PortfolioHome />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

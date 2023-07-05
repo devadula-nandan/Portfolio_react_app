@@ -24,7 +24,6 @@ function WorksSection() {
                     const repoReadme = await fetchRepoReadme(repo.full_name);
                     repo.readme = repoReadme;
                     const match = repo.readme.split('\n')[0].match(/<!--\s*'(.*)'\s*-->/);
-
                     if (match) {
                         const jsonData = JSON.parse(match[1].replace(/\\(.)/g, '$1'));
                         repo.hiddenData = jsonData;
@@ -107,7 +106,7 @@ function WorksSection() {
                     API
                 </button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gap-10 lg:gap-8 md:gap-6 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-10 lg:gap-8 md:gap-6 gap-4 mb-8">
                 {currentRepos.length === 0 ? (
                     Array.from({ length: 6 }).map((_, index) => <Card2Skeleton key={index} />)
                 ) : (

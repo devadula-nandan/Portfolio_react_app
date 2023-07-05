@@ -8,11 +8,12 @@ import AboutSection from '../AboutSection'
 import HomeSection from '../HomeSection'
 import Layout from '../../layout/Layout'
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 const base64 = require('js-base64').Base64;
 function PortfolioHome() {
     const [user, setUser] = useState(null)
-    let { githubName } = useParams();
+    // let { githubName } = useParams();
+    let githubName = 'devadula-nandan';
     const getUser = async () => {
         try {
 
