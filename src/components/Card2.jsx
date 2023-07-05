@@ -42,7 +42,7 @@ function Card2({ repo }) {
                 }
 
                 <div className="absolute h-full w-full backdrop-blur-sm bg-base-300/90 invisible group-hover:visible">
-                    <p className="px-4 mb-2 text-base-content font-medium opacity-0 group-hover:animate-slide-up">
+                    <p className="px-4 mb-2 text-base-content font-medium opacity-0 py-3 group-hover:animate-slide-up">
                         {repo.description}
                     </p>
                 </div>
