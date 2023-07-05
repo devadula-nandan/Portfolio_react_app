@@ -13,7 +13,7 @@ function WorksSection({githubName}) {
 
     const getGithubRepos = async () => {
         try {
-            const { data } = await axios.get('https://api.github.com/users/{githubName}/repos', {
+            const { data } = await axios.get(`https://api.github.com/users/${githubName}/repos`, {
                 headers: {
                     Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
                 },
