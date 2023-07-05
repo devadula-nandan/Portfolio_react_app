@@ -19,7 +19,7 @@ function AboutSection({ user }) {
                         <div className="grid grid-cols-2 md:grid-cols-12 gap-6 md:gap-4">
                             <div className="col-span-6">
                                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-acbasecent-content mb-6">Hi, I'm {user?.firstName}</h1>
-                                <p className='text-base md:text-base lg:text-lg font-semibold mb-6'>{user?.description}</p>
+                                <p className='text-sm md:text-base lg:text-lg font-semibold mb-6'>{user?.description}</p>
                                 <a href={user?.cv} target="_blank" rel="noreferrer" className="btn btn-accent text-accent-content">Download CV</a>
                             </div>
                             <div className="col-span-6">
