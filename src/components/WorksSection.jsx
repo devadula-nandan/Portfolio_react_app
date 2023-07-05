@@ -6,7 +6,6 @@ import Heading from './Heading';
 const base64 = require('js-base64').Base64;
 
 function WorksSection({githubName}) {
-    alert(githubName)
     const [active, setActive] = useState(0);
     const [repos, setRepos] = useState([]);
     const [pagination, setPagination] = useState({});
