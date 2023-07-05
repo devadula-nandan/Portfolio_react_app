@@ -17,7 +17,7 @@ const ExperienceItem = ({ item, index, icons }) => {
             : <div className="badge badge-primary uppercase text-xs">present</div>}
         </span>
         <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-        <p className="font-semibold text-base">{item.description}</p>
+        <p className="font-semibold text-sm md:text-base">{item.description}</p>
       </div>
     </div>
   );
