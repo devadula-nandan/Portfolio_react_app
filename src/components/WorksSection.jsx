@@ -22,7 +22,6 @@ function WorksSection({ githubName }) {
       await Promise.all(
         filteredData.map(async (repo) => {
           const repoReadme = await fetchRepoReadme(repo.full_name);
-          console.log(repo);
           repo.readme = repoReadme;
           const match = repo.readme.split('\n')[0].match(/<!--\s*'(.*)'\s*-->/);
           if (match) {

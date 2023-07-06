@@ -25,8 +25,8 @@ function PortfolioHome() {
             const readmeContent = base64.decode(data.content);
             const match = readmeContent.split('\n')[0].match(/<!--\s*'(.*)'\s*-->/);
             if (match) {
-                console.log(match);
-                const jsonData = JSON.parse(match[0].replace(/\\(.)/g, '$1'));
+                
+                const jsonData = JSON.parse(match[1].replace(/\\(.)/g, '$1'));
                 setUser(jsonData.user)
                 // console.log(jsonData.user);
             }
