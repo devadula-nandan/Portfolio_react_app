@@ -22,6 +22,7 @@ function WorksSection({ githubName }) {
       await Promise.all(
         filteredData.map(async (repo) => {
           const repoReadme = await fetchRepoReadme(repo.full_name);
+          console.log(repo);
           repo.readme = repoReadme;
           const match = repo.readme.split('\n')[0].match(/<!--\s*'(.*)'\s*-->/);
           if (match) {
@@ -33,9 +34,9 @@ function WorksSection({ githubName }) {
 
       setRepos(filteredData);
       setPagination({
-        itemsPerPage: 6,
+        itemsPerPage: 8,
         activePage: 1,
-        totalPages: Math.ceil(filteredData.length / 6),
+        totalPages: Math.ceil(filteredData.length / 8),
       });
     } catch (error) {
       console.error(`Failed to fetch repos:`, error);
@@ -80,6 +81,7 @@ function WorksSection({ githubName }) {
       return repo.hiddenData?.tags?.includes(getFilterTag(active));
     }
   });
+
 
 
 
