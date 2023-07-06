@@ -7,8 +7,8 @@ function ContactSection() {
             <div className='px-5 md:px-4'>
                 <Heading text="Contact" />
             </div>
-            <div className="flex flex-col w-full lg:flex-row gap-6 md:gap-8 mt-20" >
-                <div className="rounded-box flex max-w-4xl gap-4 flex-col mt-6 xl:mt-8">
+            <div className="flex flex-col w-full lg:flex-row gap-6 md:gap-8 mt-20 justify-between" >
+                <div className="rounded-box flex max-w-4xl gap-4 flex-col mt-6 lg:m-auto">
                     <h2 className='text-2xl font-semibold'>Let's talk about everything!</h2>
                     <p className='font-semibold'>Don't like forms? Send me an email. 👋</p>
                 </div>

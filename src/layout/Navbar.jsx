@@ -83,7 +83,7 @@ export default function Navbar({firstName}) {
                 <div className="flex gap-3 md:gap-8 lg:gap-10 xl:gap-14">
                     <div className="hidden lg:flex items-center gap-3 md:gap-8 lg:gap-10 xl:gap-14">
                         {sectionIds.map((sectionId) => (
-                            <a key={sectionId} href={`#${sectionId}`} className={"transition-all font-extrabold uppercase " + (activeSection === sectionId ? 'text-accent ' : '')} onClick={() => setActiveSection(sectionId)}>{sectionId}</a>
+                            <a key={sectionId} href={`#${sectionId}`} className={"btn btn-ghost btn-sm text-base px-2 transition-all font-extrabold uppercase " + (activeSection === sectionId ? 'text-accent ' : '')} onClick={() => setActiveSection(sectionId)}>{sectionId}</a>
                         ))}
                     </div>
                     <div className="dropdown dropdown-end">

@@ -5,7 +5,7 @@ const ExperienceItem = ({ item, index, icons }) => {
     <div className="xl:pl-20 pl-9 relative mb-5" key={index}>
       <div>
         {icons[item.type]}
-        <span className="text-sm font-semibold text-base-content/60">
+        <span className="text-sm font-semibold text-base-content/60 -ml-4">
           {new Date(item.period[0]).toDateString().split(' ')[1] +
             '-' +
             new Date(item.period[0]).toDateString().split(' ')[3]}{' '}
@@ -17,7 +17,11 @@ const ExperienceItem = ({ item, index, icons }) => {
             : <div className="badge badge-primary uppercase text-xs">present</div>}
         </span>
         <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-        <p className="font-semibold text-sm md:text-base">{item.description}</p>
+        <ol className=' list-disc text-base-content/80 font-semibold'>
+          {item.description.split("*").map((desc, index) => (
+            <li key={index}>{desc}</li>
+          ))}
+        </ol>
       </div>
     </div>
   );

@@ -17,15 +17,16 @@ function PortfolioHome() {
     const getUser = async () => {
         try {
 
-            const { data } = await axios.get(`https://api.github.com/repos/${githubName}/Portfolio_react_app/readme`, {
+            const { data } = await axios.get(`https://api.github.com/repos/${githubName}/${githubName}/readme`, {
                 headers: {
                     Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
                 },
             });
             const readmeContent = base64.decode(data.content);
-            const match = readmeContent.split('\n')[1].match(/<!--\s*'(.*)'\s*-->/);
+            const match = readmeContent.split('\n')[0].match(/<!--\s*'(.*)'\s*-->/);
             if (match) {
-                const jsonData = JSON.parse(match[1].replace(/\\(.)/g, '$1'));
+                console.log(match);
+                const jsonData = JSON.parse(match[0].replace(/\\(.)/g, '$1'));
                 setUser(jsonData.user)
                 // console.log(jsonData.user);
             }
@@ -40,7 +41,7 @@ function PortfolioHome() {
     }, [])
     return (
 
-        <Layout firstName={user?.firstName} >
+        <Layout firstName={user?.firstName} social={user?.social} >
             <div className="bg-base-100 scroll-smooth pb-24 px-0 md:px-6">
                 <Parallax>
                     <HomeSection user={user} />

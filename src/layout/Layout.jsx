@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 
-export default function Layout({ children, firstName }) {
+export default function Layout({ children, firstName, social }) {
 
     return (
         <>
@@ -11,7 +11,7 @@ export default function Layout({ children, firstName }) {
                 {children}
             </div>
             {/* <p>footer</p> */}
-            <Footer />
+            <Footer social={social} />
 
         </>
 

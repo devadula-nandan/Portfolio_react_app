@@ -34,10 +34,10 @@ function Card2({ repo }) {
                 </div>
             </div>
             <div className="carousel w-full mb-2 relative">
-                {repo?.hiddenData?.snapshots &&
+                {repo?.hiddenData?.snapshots[0] &&
                     <img src={repo?.hiddenData?.snapshots[0]} alt='snapshot1' className="w-full" />
                 }
-                {!repo?.hiddenData?.snapshots &&
+                {!repo?.hiddenData?.snapshots[0] &&
                     placeholder
                 }
 
