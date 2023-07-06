@@ -8,7 +8,7 @@ import PortfolioHome from './components/pages/PortfolioHome';
 const NotFound = () => <div>404 Not Found</div>;
 const Home = () => <div> Home </div>;
 const App = () => {
-
+  alert("this app is under development");
   return (
     <Router>
       <Routes>
