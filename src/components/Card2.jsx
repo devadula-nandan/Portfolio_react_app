@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 const placeholder = <svg viewBox="0 0 255 158" fill="none">
-<rect y="0.957031" fill="#E3E6EB" className='w-full h-full'/>
-<path fillRule="evenodd" clipRule="evenodd" d="M208.932 56.3169C219.202 56.3169 227.528 48.0008 227.528 37.7424C227.528 27.484 219.202 19.168 208.932 19.168C198.662 19.168 190.336 27.484 190.336 37.7424C190.336 48.0008 198.662 56.3169 208.932 56.3169Z" fill="#CDCFD5"/>
-<path fillRule="evenodd" clipRule="evenodd" d="M94.842 77.8672L8 157.774H166.203L94.842 77.8672Z" fill="#CDCFD5"/>
-<path fillRule="evenodd" clipRule="evenodd" d="M157.658 61.1133L66.498 158.001H245.953L157.658 61.1133Z" fill="#C0C3CB"/>
+<rect className='w-full h-full fill-base-300'/>
+<path fillRule="evenodd" clipRule="evenodd" d="M208.932 56.3169C219.202 56.3169 227.528 48.0008 227.528 37.7424C227.528 27.484 219.202 19.168 208.932 19.168C198.662 19.168 190.336 27.484 190.336 37.7424C190.336 48.0008 198.662 56.3169 208.932 56.3169Z" className='fill-base-100'/>
+<path fillRule="evenodd" clipRule="evenodd" d="M94.842 77.8672L8 157.774H166.203L94.842 77.8672Z" className='fill-base-content/10'/>
+<path fillRule="evenodd" clipRule="evenodd" d="M157.658 61.1133L66.498 158.001H245.953L157.658 61.1133Z" className='fill-base-200'/>
 </svg>
 function Card2({ repo }) {
     // const [image, setImage] = useState(null);

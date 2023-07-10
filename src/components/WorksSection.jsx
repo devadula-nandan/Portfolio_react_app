@@ -9,7 +9,11 @@ function WorksSection({ githubName }) {
   const [active, setActive] = useState(0);
   const [repos, setRepos] = useState([]);
   const [pagination, setPagination] = useState({});
-
+  useEffect(() => {
+    if (githubName) {
+      getGithubRepos();
+    }
+  }, [githubName]);
   const getGithubRepos = async () => {
     try {
       const { data } = await axios.get(`https://api.github.com/users/${githubName}/repos`, {
@@ -53,11 +57,7 @@ function WorksSection({ githubName }) {
     }
   };
 
-  useEffect(() => {
-    if (githubName) {
-      getGithubRepos();
-    }
-  }, [githubName]);
+
 
   const handlePageChange = (page) => {
     setPagination((prevState) => ({
@@ -68,7 +68,21 @@ function WorksSection({ githubName }) {
 
   const handleFilterChange = (index) => {
     setActive(index);
+    const filteredRepos = repos.filter((repo) => {
+      if (index === 0) {
+        return true;
+      } else {
+        return repo.hiddenData?.tags?.includes(getFilterTag(index));
+      }
+    });
+    const totalPages = Math.ceil(filteredRepos.length / pagination.itemsPerPage);
+    setPagination((prevState) => ({
+      ...prevState,
+      activePage: 1,
+      totalPages,
+    }));
   };
+  
   const getFilterTag = (index) => {
     const tags = ['all', 'frontend', 'backend', 'fullstack', 'api'];
     return tags[index];
@@ -90,45 +104,46 @@ function WorksSection({ githubName }) {
 
   return (
     <div className="container mx-auto pt-24 px-3" id="works">
-      {/* Rest of the component code */}
+      <div className='px-5 md:px-4'>
+                <Heading text="Skills" />
+            </div>
 
       <div className="flex flex-wrap gap-2 lg:gap-4 mt-20 mb-8">
         {['all', 'frontend', 'backend', 'fullstack', 'api'].map((tag, index) => (
           <button
             key={index}
-           className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${
-              active === index ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
-            }`}
+            className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${active === index ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
+              }`}
             onClick={() => handleFilterChange(index)}
           >
             {tag}
           </button>
         ))}
       </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-10 lg:gap-8 md:gap-6 gap-4 mb-8">
-                {currentRepos.length === 0 ? (
-                    Array.from({ length: 6 }).map((_, index) => <Card2Skeleton key={index} />)
-                ) : (
-                    currentRepos.map((repo) => <Card2 repo={repo} key={repo.id} />)
-                )}
-            </div>
-            <div className="flex justify-end my-4">
-                <ul className="flex items-center">
-                    {Array.from({ length: pagination.totalPages }).map((_, index) => (
-                        <li key={index}>
-                            <button
-                                className={`${pagination.activePage === index + 1 ? 'bg-accent/40 text-accent-content' : 'text-base-content'
-                                    } hover:bg-accent/40 hover:text-accent-content transition-all font-semibold rounded-md px-4 py-2 mx-1`}
-                                onClick={() => handlePageChange(index + 1)}
-                            >
-                                {index + 1}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
-    );
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-10 lg:gap-8 md:gap-6 gap-4 mb-8">
+        {currentRepos.length === 0 ? (
+          Array.from({ length: 6 }).map((_, index) => <Card2Skeleton key={index} />)
+        ) : (
+          currentRepos.map((repo) => <Card2 repo={repo} key={repo.id} />)
+        )}
+      </div>
+      <div className="flex justify-end my-4">
+        <ul className="flex items-center">
+          {Array.from({ length: pagination.totalPages }).map((_, index) => (
+            <li key={index}>
+              <button
+                className={`${pagination.activePage === index + 1 ? 'bg-accent/10 text-accent' : 'text-base-content'
+                  } hover:bg-accent/10 hover:text-accent-content transition-all font-semibold rounded-md px-4 py-2 mx-1`}
+                onClick={() => handlePageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 export default WorksSection;
