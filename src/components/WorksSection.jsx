@@ -105,7 +105,7 @@ function WorksSection({ githubName }) {
   return (
     <div className="container mx-auto pt-24 px-3" id="works">
       <div className='px-5 md:px-4'>
-                <Heading text="Skills" />
+                <Heading text="Works" />
             </div>
 
       <div className="flex flex-wrap gap-2 lg:gap-4 mt-20 mb-8">
