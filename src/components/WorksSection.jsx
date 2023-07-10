@@ -112,7 +112,7 @@ function WorksSection({ githubName }) {
         {['all', 'frontend', 'backend', 'fullstack', 'api'].map((tag, index) => (
           <button
             key={index}
-            className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm ${active === index ? 'text-primary bg-primary/10' : 'hover:bg-primary/10'
+            className={`btn btn-ghost font-semibold text-sm md:text-base xl:text-lg btn-sm hover:bg-primary/10 ${active === index ? 'text-primary bg-primary/10' : ''
               }`}
             onClick={() => handleFilterChange(index)}
           >
@@ -122,7 +122,7 @@ function WorksSection({ githubName }) {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-10 lg:gap-8 md:gap-6 gap-4 mb-8">
         {currentRepos.length === 0 ? (
-          Array.from({ length: 6 }).map((_, index) => <Card2Skeleton key={index} />)
+          Array.from({ length: 8 }).map((_, index) => <Card2Skeleton key={index} />)
         ) : (
           currentRepos.map((repo) => <Card2 repo={repo} key={repo.id} />)
         )}
@@ -133,7 +133,7 @@ function WorksSection({ githubName }) {
             <li key={index}>
               <button
                 className={`${pagination.activePage === index + 1 ? 'bg-accent/10 text-accent' : 'text-base-content'
-                  } hover:bg-accent/10 hover:text-accent-content transition-all font-semibold rounded-md px-4 py-2 mx-1`}
+                  } hover:bg-accent/10 transition-all font-semibold rounded-md px-4 py-2 mx-1`}
                 onClick={() => handlePageChange(index + 1)}
               >
                 {index + 1}

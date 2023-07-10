@@ -41,7 +41,7 @@ function Card2({ repo }) {
                     placeholder
                 }
 
-                <div className="absolute h-full w-full backdrop-blur-sm bg-base-300/90 invisible group-hover:visible transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
+                <div className="absolute h-full w-full backdrop-blur-sm bg-base-200/90 invisible group-hover:visible transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
                     <p className="px-4 mb-2 text-base-content font-medium py-3 transition-transform duration-300 ease-in-out translate-y-16 group-hover:translate-y-0">
                         {repo.description}
                     </p>

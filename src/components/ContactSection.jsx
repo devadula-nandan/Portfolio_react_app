@@ -9,8 +9,8 @@ function ContactSection() {
             </div>
             <div className="flex flex-col w-full lg:flex-row gap-6 md:gap-8 mt-20 justify-between" >
                 <div className="rounded-box flex max-w-4xl gap-4 flex-col mt-6 lg:m-auto">
-                    <h2 className='text-2xl font-semibold'>Let's talk about everything!</h2>
-                    <p className='font-semibold'>Don't like forms? Send me an email. 👋</p>
+                    <h2 className='text-2xl font-bold'>Let's talk about everything!</h2>
+                    <p className=' text-base font-semibold'>Don't like forms? Send me an <a className=' text-primary hover:text-base-content transition-all' href='mailto:devadula.nandan@gmail.com'>email</a>. 👋</p>
                 </div>
                 <div className="rounded-box py-8 xl:py-10 max-w-2xl w-full">
                     <form action="">
