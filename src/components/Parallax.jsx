@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react';
 const Parallax = ({ children }) => {
     const [mousePosition, setMousePosition] = useState({
         x: window.innerWidth / 2,
-        y: window.innerHeight / 2
+        y: (window.innerHeight / 2) - 400
     });
 
     useEffect(() => {
         const handleMouseMove = (event) => {
             const { clientX, clientY } = event;
-            setMousePosition({ x: -(clientX - (window.innerWidth / 2)), y: -(clientY - (window.innerHeight / 2)) });
+            setMousePosition({ x: -(clientX - (window.innerWidth / 2)), y: -(clientY - (window.innerHeight / 2) - 400) });
         };
 
         if(window.innerWidth > 768){

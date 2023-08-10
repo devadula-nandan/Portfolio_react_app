@@ -11,7 +11,7 @@ function SkillsSection({ skills }) {
                 {skills && Object.keys(skills).map((key) => (
                     <div className="skill flex flex-col items-center gap-2 md:gap-6" key={key}>
                         <div className="radial-progress font-semibold text-primary hover:text-secondary transition-all" style={{ "--value": skills[key], "--size": "calc(4vw + 4rem)", "--thickness": "calc(0.6vw + 0.6rem)" }}><span className=' text-base-content'>{skills[key]}%</span></div>
-                        <p className='text-md text-base-content font-semibold md:text-xl lg:text-2xl'>{key}</p>
+                        <p className='text-md flex text-base-content font-semibold md:text-xl lg:text-2xl gap-1 items-center'><img className=' h-6 w-6' src={`https://skillicons.dev/icons?i=${key.toLowerCase()}`} alt={key}/>{key}</p>
                     </div>
                 ))}
             </div>
