@@ -11,8 +11,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Install Dependencies
-        run: npm install -g playwright
+        run: |
+          npm init -y  # Ensure package.json exists
+          npm install playwright  # Install Playwright as a project dependency
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
