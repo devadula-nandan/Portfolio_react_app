@@ -1,4 +1,6 @@
 const { chromium } = require("playwright");
+const fs = require("fs");
+const path = require("path");
 
 const url = process.argv[2]; // Get URL from workflow input
 if (!url) {
@@ -11,20 +13,20 @@ const brokenLinks = [];
 const baseUrl = new URL(url).origin; // Get base URL
 
 async function checkLinks(page, currentUrl) {
-  if (visitedLinks.has(currentUrl) || currentUrl.includes("#")) return;
+  if (visitedLinks.has(currentUrl)) return;
   visitedLinks.add(currentUrl);
-
   try {
     const response = await page.goto(currentUrl, { timeout: 5000, waitUntil: "domcontentloaded" });
 
     if (!response || response.status() >= 400) {
+      console.log(`❌ Broken: ${currentUrl} (Status: ${response ? response.status() : "No Response"})`);
       brokenLinks.push({ url: currentUrl, status: response ? response.status() : "No Response" });
+    } else {
+      console.log(`✅ Working: ${currentUrl}`);
     }
 
     const newLinks = await page.$$eval("a", (anchors) =>
-      anchors
-        .map((a) => a.href)
-        .filter((href) => href.startsWith(window.location.origin) && !href.includes("#"))
+      anchors.map((a) => a.href).filter((href) => href.startsWith(window.location.origin))
     );
 
     for (const link of newLinks) {
@@ -32,7 +34,8 @@ async function checkLinks(page, currentUrl) {
         await checkLinks(page, link);
       }
     }
-  } catch {
+  } catch (error) {
+    console.log(`❌ Error: ${currentUrl} (Error: ${error.message})`);
     brokenLinks.push({ url: currentUrl, status: "Failed to Fetch" });
   }
 }
@@ -41,14 +44,15 @@ async function checkLinks(page, currentUrl) {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
+  console.log(`🔎 Starting broken link check for: ${url}`);
   await checkLinks(page, url);
   await browser.close();
 
-  // 🔥 Console output only (no file write)
-  if (brokenLinks.length) {
-    console.log("\n❌ Broken Links Found:");
-    brokenLinks.forEach(({ url, status }) => console.log(`🔗 ${url} -> ${status}`));
-  } else {
-    console.log("\n✅ No broken links found!");
-  }
+  const reportPath = path.resolve("broken-links-report.txt");
+  const report = brokenLinks.length
+    ? brokenLinks.map((l) => `${l.status}: ${l.url}`).join("\n")
+    : "✅ No broken links found!";
+  
+  fs.writeFileSync(reportPath, report);
+  console.log("\n✅ Broken link check completed.");
 })();
