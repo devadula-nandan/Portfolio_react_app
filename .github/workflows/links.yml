@@ -33,7 +33,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright Broken Link Checker
-        run: npx playwright node .github/workflows/scripts/check-broken-links.js "${{ inputs.url }}"
+        run: node .github/workflows/scripts/check-broken-links.js "${{ inputs.url }}"
 
       - name: Upload Report
         if: always()
