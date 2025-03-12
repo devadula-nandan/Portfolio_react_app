@@ -18,7 +18,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright Broken Link Checker
-        run: node check-broken-links.js
+        run: node .github/workflows/scripts/check-broken-links.js
 
       - name: Upload Report
         if: always()
