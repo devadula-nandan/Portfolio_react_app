@@ -5,7 +5,7 @@ const fs = require("fs");
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  const url = "https://carbondesignsystem.com/";
+  const url = "https://portfolio-devadula-nandan.vercel.app/";
   const brokenLinks = [];
 
   console.log(`Checking broken links on: ${url}`);
