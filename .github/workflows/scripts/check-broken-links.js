@@ -13,14 +13,17 @@ const brokenLinks = [];
 const baseUrl = new URL(url).origin; // Get base URL
 const results = []; // Store log messages
 
-async function checkLinks(page, currentUrl) {
+async function checkLinks(page, currentUrl, isExternal = false) {
   if (visitedLinks.has(currentUrl) || currentUrl.includes("#")) return;
   visitedLinks.add(currentUrl);
 
   try {
-    const response = await page.goto(currentUrl, { timeout: 5000, waitUntil: "domcontentloaded" });
-    const status = response ? response.status() : "No Response";
+    const response = await page.goto(currentUrl, {
+      timeout: 5000,
+      waitUntil: "networkidle",
+    });
 
+    const status = response ? response.status() : "No Response";
     if (!response || status >= 400) {
       brokenLinks.push({ url: currentUrl, status });
       results.push(`❌ [${status}] ${currentUrl}`);
@@ -28,13 +31,25 @@ async function checkLinks(page, currentUrl) {
       results.push(`✅ [${status}] ${currentUrl}`);
     }
 
+    if (isExternal) return; // Only check external links once, no recursion
+
+    // Extract all valid links from the page
     const newLinks = await page.$$eval("a", (anchors) =>
-      anchors.map((a) => a.href).filter((href) => href.startsWith(baseUrl) && !href.includes("#"))
+      anchors
+        .map((a) => a.href.trim())
+        .filter(
+          (href) =>
+            href && !href.includes("#") && !href.startsWith("javascript")
+        )
     );
 
     for (const link of newLinks) {
       if (!visitedLinks.has(link)) {
-        await checkLinks(page, link);
+        if (link.startsWith(baseUrl)) {
+          await checkLinks(page, link, false); // Recursively check internal links
+        } else {
+          await checkLinks(page, link, true); // Only check external links once
+        }
       }
     }
   } catch (error) {
@@ -57,7 +72,7 @@ async function checkLinks(page, currentUrl) {
   const report = brokenLinks.length
     ? brokenLinks.map((l) => `${l.status}: ${l.url}`).join("\n")
     : "✅ No broken links found!";
-  
+
   fs.writeFileSync(reportPath, report);
   console.log("\n✅ Broken link check completed.");
 })();
