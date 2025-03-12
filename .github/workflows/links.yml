@@ -11,16 +11,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check Links
-        uses: lycheeverse/lychee-action@v1
-        with:
-          args: --verbose --exclude-mail --exclude "https://example.com" .
-          fail: true # Fail the workflow if broken links are found
-          output: lychee-report.txt # Save the output to a file
+      - name: Install Dependencies
+        run: npm install -g cypress cypress-broken-link-checker
+
+      - name: Run Cypress Broken Link Checker
+        run: |
+          cypress-broken-link-checker --url "https://portfolio-devadula-nandan.vercel.app/" --exclude "mailto:*" --recursive
 
       - name: Upload Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: broken-links-report
-          path: lychee-report.txt
+          path: cypress-broken-links-report.json
