@@ -1,7 +1,12 @@
 name: Check Broken Links
 
 on:
-  workflow_dispatch: # Manual trigger
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Website URL to check for broken links"
+        required: true
+        default: "https://portfolio-devadula-nandan.vercel.app/"
 
 jobs:
   link-check:
@@ -28,7 +33,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright Broken Link Checker
-        run: npx playwright node .github/workflows/scripts/check-broken-links.js
+        run: npx playwright node .github/workflows/scripts/check-broken-links.js "${{ inputs.url }}"
 
       - name: Upload Report
         if: always()

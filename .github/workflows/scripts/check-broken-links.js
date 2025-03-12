@@ -1,11 +1,16 @@
 const { chromium } = require("playwright");
 const fs = require("fs");
 
+const url = process.argv[2]; // Get URL from workflow input
+
+if (!url) {
+  console.error("❌ Error: No URL provided. Exiting...");
+  process.exit(1);
+}
+
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-
-  const url = "https://portfolio-devadula-nandan.vercel.app/";
   const brokenLinks = [];
 
   console.log(`🔎 Checking broken links on: ${url}`);
@@ -19,7 +24,7 @@ const fs = require("fs");
     try {
       const response = await page.evaluate(async (url) => {
         try {
-          const res = await fetch(url, { method: "HEAD" }); // Only check headers (faster)
+          const res = await fetch(url, { method: "HEAD" });
           return { status: res.status };
         } catch {
           return { status: "Failed to Fetch" };
