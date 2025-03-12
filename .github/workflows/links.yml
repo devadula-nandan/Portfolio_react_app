@@ -1,29 +1,26 @@
-name: Links
+name: Check Broken Links
 
 on:
-  repository_dispatch:
-  workflow_dispatch:
-  schedule:
-    - cron: "00 18 * * *"
+  workflow_dispatch: # Enables manual execution
 
 jobs:
-  linkChecker:
+  link-check:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write # required for peter-evans/create-issue-from-file
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Link Checker
-        id: lychee
-        uses: lycheeverse/lychee-action@v2
+      - name: Check Links
+        uses: lycheeverse/lychee-action@v1
         with:
-          fail: false
+          args: --verbose --exclude-mail --exclude "https://example.com"
+          fail: true # Fails the workflow if broken links are found
+          output: lychee-report.txt # Save the output to a file
 
-      - name: Create Issue From File
-        if: steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
+      - name: Upload Report
+        if: always()
+        uses: actions/upload-artifact@v3
         with:
-          title: Link Checker Report
-          content-filepath: ./lychee/out.md
-          labels: report, automated issue
+          name: broken-links-report
+          path: lychee-report.txt
