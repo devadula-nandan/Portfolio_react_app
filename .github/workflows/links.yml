@@ -1,7 +1,7 @@
 name: Check Broken Links
 
 on:
-  workflow_dispatch: # Enables manual execution
+  workflow_dispatch: # Manual trigger
 
 jobs:
   link-check:
@@ -14,8 +14,8 @@ jobs:
       - name: Check Links
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --exclude-mail --exclude "https://example.com"
-          fail: true # Fails the workflow if broken links are found
+          args: --verbose --exclude-mail --exclude "https://example.com" .
+          fail: true # Fail the workflow if broken links are found
           output: lychee-report.txt # Save the output to a file
 
       - name: Upload Report
