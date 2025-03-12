@@ -12,15 +12,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Dependencies
-        run: npm install -g cypress cypress-broken-link-checker
+        run: npm install -g playwright
 
-      - name: Run Cypress Broken Link Checker
-        run: |
-          cypress-broken-link-checker --url "https://portfolio-devadula-nandan.vercel.app/" --exclude "mailto:*" --recursive
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright Broken Link Checker
+        run: node check-broken-links.js
 
       - name: Upload Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: broken-links-report
-          path: cypress-broken-links-report.json
+          path: broken-links-report.txt
