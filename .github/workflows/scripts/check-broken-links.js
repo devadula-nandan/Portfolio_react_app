@@ -11,22 +11,25 @@ if (!url) {
 const visitedLinks = new Set();
 const brokenLinks = [];
 const baseUrl = new URL(url).origin; // Get base URL
+const results = []; // Store log messages
 
 async function checkLinks(page, currentUrl) {
-  if (visitedLinks.has(currentUrl)) return;
+  if (visitedLinks.has(currentUrl) || currentUrl.includes("#")) return;
   visitedLinks.add(currentUrl);
+
   try {
     const response = await page.goto(currentUrl, { timeout: 5000, waitUntil: "domcontentloaded" });
+    const status = response ? response.status() : "No Response";
 
-    if (!response || response.status() >= 400) {
-      console.log(`❌ Broken: ${currentUrl} (Status: ${response ? response.status() : "No Response"})`);
-      brokenLinks.push({ url: currentUrl, status: response ? response.status() : "No Response" });
+    if (!response || status >= 400) {
+      brokenLinks.push({ url: currentUrl, status });
+      results.push(`❌ [${status}] ${currentUrl}`);
     } else {
-      console.log(`✅ Working: ${currentUrl}`);
+      results.push(`✅ [${status}] ${currentUrl}`);
     }
 
     const newLinks = await page.$$eval("a", (anchors) =>
-      anchors.map((a) => a.href).filter((href) => href.startsWith(window.location.origin))
+      anchors.map((a) => a.href).filter((href) => href.startsWith(baseUrl) && !href.includes("#"))
     );
 
     for (const link of newLinks) {
@@ -35,8 +38,8 @@ async function checkLinks(page, currentUrl) {
       }
     }
   } catch (error) {
-    console.log(`❌ Error: ${currentUrl} (Error: ${error.message})`);
     brokenLinks.push({ url: currentUrl, status: "Failed to Fetch" });
+    results.push(`❌ [Failed to Fetch] ${currentUrl}`);
   }
 }
 
@@ -44,9 +47,11 @@ async function checkLinks(page, currentUrl) {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  console.log(`🔎 Starting broken link check for: ${url}`);
+  console.log(`🔎 Checking broken links on: ${url}`);
   await checkLinks(page, url);
   await browser.close();
+
+  console.log("\n" + results.join("\n")); // Print all results in one log
 
   const reportPath = path.resolve("broken-links-report.txt");
   const report = brokenLinks.length
