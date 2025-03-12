@@ -16,12 +16,20 @@ jobs:
         with:
           node-version: 20
 
+      - name: Restore Playwright Cache
+        id: cache-playwright
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-v1
+
       - name: Install Dependencies
         run: |
           npm init -y  # Ensure package.json exists
           npm install playwright  # Install Playwright as a project dependency
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright Browsers (if not cached)
+        if: steps.cache-playwright.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
       - name: Run Playwright Broken Link Checker
