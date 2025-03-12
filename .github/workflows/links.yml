@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install Playwright
+        run: npm install -g playwright
+
       - name: Restore Playwright Cache
         id: cache-playwright
         uses: actions/cache@v3
